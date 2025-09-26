@@ -1,0 +1,96 @@
+---
+// Hero component inspired by astro.build
+---
+
+<section
+    class="min-h-screen flex items-center justify-center relative px-4 sm:px-6"
+>
+    <!-- Additional purple/indigo overlay for hero section -->
+    <div
+        class="absolute inset-0 bg-gradient-to-b from-indigo-500/8 via-purple-500/6 to-transparent pointer-events-none"
+    >
+    </div>
+
+    <div class="text-center max-w-4xl mx-auto relative z-10 w-full">
+        <!-- Logo/Brand -->
+        <div class="mb-6 sm:mb-8">
+            <div
+                class="inline-block p-3 sm:p-4 rounded-full bg-gradient-to-r from-indigo-500/80 to-purple-500/80 backdrop-blur-sm border border-white/10 mb-4 sm:mb-6"
+            >
+                <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="text-white sm:w-12 sm:h-12"
+                >
+                    <path
+                        d="M12 6v6l4 2"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        fill="none"></circle>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Main Title -->
+        <h1
+            class="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-white via-indigo-100 to-purple-100 bg-clip-text text-transparent leading-tight px-2"
+        >
+            WorkSchedFlow
+        </h1>
+
+        <!-- Subtitle -->
+        <p
+            class="text-base sm:text-xl lg:text-2xl text-gray-200 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4"
+        >
+            Sistema integral de gestión de empleados, control horario y
+            fichajes. Simplifica la administración de tu equipo con tecnología
+            moderna.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div
+            class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4"
+        >
+            <a
+                href="https://sergiomsrs.github.io/prueba-concepto-gestorTurnos/#/daily"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg font-semibold text-base sm:text-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 border border-white/10 backdrop-blur-sm inline-block text-center"
+            >
+                Acceder al Sistema
+            </a>
+            <button
+                class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border border-gray-300/30 rounded-lg font-semibold text-base sm:text-lg hover:bg-white/5 hover:border-gray-200/40 transition-all duration-300 backdrop-blur-sm"
+            >
+                Ver Demo
+            </button>
+        </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div
+        class="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+    >
+        <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="text-gray-400"
+        >
+            <path d="M7 10L12 15L17 10H7Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</section>

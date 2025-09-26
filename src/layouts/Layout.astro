@@ -1,22 +1,70 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>WorkSchedFlow - Gestión de Empleados y Control Horario</title>
 	</head>
-	<body>
-		<slot />
+	<body class="text-white min-h-screen">
+		<!-- Background gradient from lighter to darker -->
+		<div
+			class="fixed inset-0 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950"
+		>
+		</div>
+
+		<div class="fixed inset-0 overflow-hidden pointer-events-none">
+			<!-- Enhanced gradient overlay for the top section -->
+			<div
+				class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(120,119,198,0.08),transparent_40%)]"
+			>
+			</div>
+			<!-- Very subtle floating orbs -->
+			<div
+				class="floating-orb absolute top-1/4 left-1/4 w-96 h-96 bg-slate-700/20 rounded-full mix-blend-multiply filter blur-3xl"
+			>
+			</div>
+			<div
+				class="floating-orb absolute top-3/4 right-1/4 w-80 h-80 bg-slate-800/15 rounded-full mix-blend-multiply filter blur-3xl"
+				style="animation-delay: 10s;"
+			>
+			</div>
+		</div>
+		<div class="relative z-10">
+			<slot />
+		</div>
 	</body>
 </html>
 
 <style>
-	html,
+	html {
+		scroll-behavior: smooth;
+	}
+
 	body {
 		margin: 0;
-		width: 100%;
-		height: 100%;
+		overflow-x: hidden;
+		background-color: #020617; /* slate-950 */
+	}
+
+	/* Subtle animations for floating elements */
+	@media (prefers-reduced-motion: no-preference) {
+		.floating-orb {
+			animation: float 20s ease-in-out infinite;
+		}
+	}
+
+	@keyframes float {
+		0%,
+		100% {
+			transform: translateY(0px) translateX(0px);
+		}
+		33% {
+			transform: translateY(-10px) translateX(5px);
+		}
+		66% {
+			transform: translateY(5px) translateX(-5px);
+		}
 	}
 </style>
