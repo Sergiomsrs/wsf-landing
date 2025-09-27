@@ -3,7 +3,7 @@
 ---
 
 <section
-    class="min-h-screen flex items-center justify-center relative px-4 sm:px-6"
+    class="min-h-screen flex items-center justify-center relative px-6 sm:px-8 lg:px-8"
 >
     <!-- Additional purple/indigo overlay for hero section -->
     <div
@@ -11,70 +11,215 @@
     >
     </div>
 
-    <div class="text-center max-w-4xl mx-auto relative z-10 w-full">
-        <!-- Logo/Brand -->
-        <div class="mb-6 sm:mb-8">
+    <div class="max-w-7xl mx-auto relative z-10 w-full">
+        <div
+            class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+        >
+            <!-- Text Content Column -->
             <div
-                class="inline-block p-3 sm:p-4 rounded-full bg-gradient-to-r from-indigo-500/80 to-purple-500/80 backdrop-blur-sm border border-white/10 mb-4 sm:mb-6"
+                class="lg:col-span-5 text-center lg:text-left space-y-6 lg:space-y-8 order-1 lg:order-1 px-2 lg:px-0"
             >
-                <svg
-                    width="40"
-                    height="40"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="text-white sm:w-12 sm:h-12"
+                <!-- Main Title -->
+                <div class="px-2 sm:px-0">
+                    <h1
+                        class="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-400 bg-clip-text text-transparent leading-tight"
+                    >
+                        WorkSchedFlow
+                    </h1>
+                </div>
+
+                <!-- Subtitle -->
+                <div class="max-w-xl mx-auto lg:mx-0">
+                    <p
+                        class="text-lg sm:text-xl lg:text-xl text-gray-300/90 leading-relaxed font-light"
+                    >
+                        Sistema integral de gestión de cuadrantes, control
+                        horario y fichajes. Simplifica la administración de tu
+                        equipo con tecnología moderna.
+                    </p>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div
+                    class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start items-center pt-2"
                 >
-                    <path
-                        d="M12 6v6l4 2"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"></path>
-                    <circle
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        fill="none"></circle>
-                </svg>
+                    <a
+                        href="https://sergiomsrs.github.io/prueba-concepto-gestorTurnos/#/daily"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl font-semibold text-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 border border-white/10 backdrop-blur-sm inline-block text-center text-white"
+                    >
+                        Acceder al Sistema
+                    </a>
+                    <button
+                        class="w-full sm:w-auto px-8 py-4 border border-gray-300/30 rounded-xl font-semibold text-lg hover:bg-white/5 hover:border-gray-200/40 transition-all duration-300 backdrop-blur-sm text-gray-200"
+                    >
+                        Ver Demo
+                    </button>
+                </div>
+            </div>
+
+            <!-- Image Column -->
+            <div class="lg:col-span-7 relative mt-6 lg:mt-0 order-2 lg:order-2">
+                <!-- Background decoration for image -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-2xl transform rotate-3"
+                >
+                </div>
+                <div
+                    class="absolute inset-0 bg-gradient-to-tl from-cyan-500/10 to-indigo-500/10 rounded-2xl transform -rotate-2"
+                >
+                </div>
+
+                <!-- Main image container -->
+                <div
+                    class="relative bg-slate-800/30 backdrop-blur-sm rounded-2xl border border-slate-700/50 overflow-hidden shadow-2xl"
+                >
+                    <img
+                        src="/general.webp"
+                        alt="WorkSchedFlow Dashboard - Sistema de gestión de empleados y control horario"
+                        class="w-full h-auto object-cover transition-transform duration-700 hover:scale-105"
+                        loading="lazy"
+                    />
+
+                    <!-- Overlay gradient -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent"
+                    >
+                    </div>
+                </div>
+
+                <!-- Floating elements around image -->
+                <div
+                    class="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full blur-xl"
+                >
+                </div>
+                <div
+                    class="absolute -bottom-4 -left-4 w-24 h-24 bg-gradient-to-br from-purple-400/20 to-pink-500/20 rounded-full blur-xl"
+                >
+                </div>
             </div>
         </div>
 
-        <!-- Main Title -->
-        <h1
-            class="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-white via-indigo-100 to-purple-100 bg-clip-text text-transparent leading-tight px-2"
-        >
-            WorkSchedFlow
-        </h1>
+        <!-- Extended Hero Section - Admin Panel Showcase -->
+        <div class="max-w-7xl mx-auto relative z-10 w-full mt-16 lg:mt-24">
+            <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                <!-- Admin Panel Image Column -->
+                <div class="lg:col-span-7 relative order-1 lg:order-1">
+                    <!-- Background decoration -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-green-500/10 to-blue-500/10 rounded-2xl transform -rotate-1"
+                    >
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tl from-purple-500/10 to-green-500/10 rounded-2xl transform rotate-1"
+                    >
+                    </div>
 
-        <!-- Subtitle -->
-        <p
-            class="text-base sm:text-xl lg:text-2xl text-gray-200 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4"
-        >
-            Sistema integral de gestión de empleados, control horario y
-            fichajes. Simplifica la administración de tu equipo con tecnología
-            moderna.
-        </p>
+                    <!-- Admin panel image container -->
+                    <div class="relative group">
+                        <img
+                            src="/admin2.webp"
+                            alt="WorkSchedFlow Panel de Administración - Control total de módulos y usuarios"
+                            class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
+                            loading="lazy"
+                        />
+                    </div>
 
-        <!-- CTA Buttons -->
-        <div
-            class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4"
-        >
-            <a
-                href="https://sergiomsrs.github.io/prueba-concepto-gestorTurnos/#/daily"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg font-semibold text-base sm:text-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 border border-white/10 backdrop-blur-sm inline-block text-center"
-            >
-                Acceder al Sistema
-            </a>
-            <button
-                class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border border-gray-300/30 rounded-lg font-semibold text-base sm:text-lg hover:bg-white/5 hover:border-gray-200/40 transition-all duration-300 backdrop-blur-sm"
-            >
-                Ver Demo
-            </button>
+                    <!-- Floating elements -->
+                    <div
+                        class="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-green-400/20 to-blue-500/20 rounded-full blur-xl"
+                    >
+                    </div>
+                    <div
+                        class="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-purple-400/20 to-green-500/20 rounded-full blur-xl"
+                    >
+                    </div>
+                </div>
+
+                <!-- Admin Content Column -->
+                <div
+                    class="lg:col-span-5 text-center lg:text-left space-y-6 order-2 lg:order-2 px-2 lg:px-0"
+                >
+                    <!-- Section title -->
+                    <div>
+                        <h2
+                            class="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-green-400 via-blue-300 to-purple-400 bg-clip-text text-transparent leading-tight"
+                        >
+                            Control Total
+                        </h2>
+                        <p class="text-xl text-green-300/80 font-medium mt-2">
+                            Panel de Administración
+                        </p>
+                    </div>
+
+                    <!-- Module description -->
+                    <div class="max-w-lg mx-auto lg:mx-0">
+                        <p
+                            class="text-lg text-gray-300/90 leading-relaxed font-light"
+                        >
+                            Accede a todas las funcionalidades avanzadas desde
+                            un panel centralizado. Gestiona usuarios, configura
+                            turnos genericos, analiza métricas y mantén el
+                            control completo de tus empleados.
+                        </p>
+                    </div>
+
+                    <!-- Module features -->
+                    <div
+                        class="grid grid-cols-2 gap-4 max-w-lg mx-auto lg:mx-0"
+                    >
+                        <div
+                            class="bg-slate-800/40 backdrop-blur-sm rounded-lg p-4 border border-slate-700/50"
+                        >
+                            <div
+                                class="text-green-400 text-sm font-semibold mb-1"
+                            >
+                                👥 Usuarios
+                            </div>
+                            <div class="text-gray-300 text-sm">
+                                Gestión completa
+                            </div>
+                        </div>
+                        <div
+                            class="bg-slate-800/40 backdrop-blur-sm rounded-lg p-4 border border-slate-700/50"
+                        >
+                            <div
+                                class="text-blue-400 text-sm font-semibold mb-1"
+                            >
+                                📊 Reportes
+                            </div>
+                            <div class="text-gray-300 text-sm">
+                                Análisis avanzado
+                            </div>
+                        </div>
+                        <div
+                            class="bg-slate-800/40 backdrop-blur-sm rounded-lg p-4 border border-slate-700/50"
+                        >
+                            <div
+                                class="text-purple-400 text-sm font-semibold mb-1"
+                            >
+                                ⚙️ Configuración
+                            </div>
+                            <div class="text-gray-300 text-sm">
+                                Personalización total
+                            </div>
+                        </div>
+                        <div
+                            class="bg-slate-800/40 backdrop-blur-sm rounded-lg p-4 border border-slate-700/50"
+                        >
+                            <div
+                                class="text-orange-400 text-sm font-semibold mb-1"
+                            >
+                                🔒 Seguridad
+                            </div>
+                            <div class="text-gray-300 text-sm">
+                                Control de acceso
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
