@@ -39,7 +39,7 @@ console.log('FeaturesSlider server-side - Total features:', totalSlides);
             <!-- Navigation buttons -->
             <button
                 id="prevBtn"
-                class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-slate-800/80 hover:bg-slate-700/80 rounded-full border border-slate-600/40 flex items-center justify-center text-white hover:text-emerald-400 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+                class="slider-button absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-slate-800/80 hover:bg-slate-700/80 rounded-full border border-slate-600/40 flex items-center justify-center text-white hover:text-emerald-400 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
                 aria-label="Anterior"
             >
                 <svg
@@ -59,7 +59,7 @@ console.log('FeaturesSlider server-side - Total features:', totalSlides);
 
             <button
                 id="nextBtn"
-                class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-slate-800/80 hover:bg-slate-700/80 rounded-full border border-slate-600/40 flex items-center justify-center text-white hover:text-emerald-400 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+                class="slider-button absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-slate-800/80 hover:bg-slate-700/80 rounded-full border border-slate-600/40 flex items-center justify-center text-white hover:text-emerald-400 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
                 aria-label="Siguiente"
             >
                 <svg
@@ -148,7 +148,7 @@ console.log('FeaturesSlider server-side - Total features:', totalSlides);
             </div>
 
             <!-- Dynamic Slider indicators -->
-            <div class="flex justify-center mt-8 space-x-2">
+            <div class="mobile-indicators flex justify-center mt-8 space-x-2">
                 {featuresData.map((_, index) => (
                     <button
                         class={`indicator w-3 h-3 rounded-full transition-all duration-300 ${
@@ -157,6 +157,7 @@ console.log('FeaturesSlider server-side - Total features:', totalSlides);
                                 : 'bg-slate-600 hover:bg-slate-500'
                         }`}
                         data-slide={index}
+                        aria-label={`Ir a slide ${index + 1}`}
                     />
                 ))}
             </div>
@@ -246,21 +247,43 @@ console.log('FeaturesSlider server-side - Total features:', totalSlides);
 
         // Touch/swipe support
         let startX = 0;
+        let startY = 0;
         let isDragging = false;
+        let isHorizontalSwipe = false;
 
         if (slider) {
             slider.addEventListener("touchstart", (e) => {
                 startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
                 isDragging = true;
+                isHorizontalSwipe = false;
             });
 
             slider.addEventListener("touchmove", (e) => {
                 if (!isDragging) return;
-                e.preventDefault();
+                
+                const currentX = e.touches[0].clientX;
+                const currentY = e.touches[0].clientY;
+                const diffX = Math.abs(currentX - startX);
+                const diffY = Math.abs(currentY - startY);
+                
+                // Determine if this is a horizontal swipe (more horizontal than vertical movement)
+                if (diffX > diffY && diffX > 10) {
+                    isHorizontalSwipe = true;
+                    e.preventDefault(); // Only prevent default for horizontal swipes
+                } else if (diffY > diffX && diffY > 10) {
+                    // This is vertical scroll, allow it
+                    isDragging = false;
+                    isHorizontalSwipe = false;
+                }
             });
 
             slider.addEventListener("touchend", (e) => {
-                if (!isDragging) return;
+                if (!isDragging || !isHorizontalSwipe) {
+                    isDragging = false;
+                    isHorizontalSwipe = false;
+                    return;
+                }
 
                 const endX = e.changedTouches[0].clientX;
                 const diff = startX - endX;
@@ -275,6 +298,7 @@ console.log('FeaturesSlider server-side - Total features:', totalSlides);
                 }
 
                 isDragging = false;
+                isHorizontalSwipe = false;
             });
         }
         
@@ -294,5 +318,29 @@ console.log('FeaturesSlider server-side - Total features:', totalSlides);
 
     .indicator:hover {
         transform: scale(1.2);
+    }
+
+    /* Mejorar experiencia táctil en móvil */
+    #slider {
+        touch-action: pan-y pinch-zoom; /* Permite scroll vertical pero detecta swipe horizontal */
+    }
+
+    /* Hacer los botones de navegación más grandes en móvil */
+    @media (max-width: 768px) {
+        .slider-button {
+            width: 3rem;
+            height: 3rem;
+            font-size: 1.25rem;
+        }
+        
+        /* Hacer los indicadores más grandes y espaciados en móvil */
+        .mobile-indicators {
+            gap: 0.75rem;
+        }
+        
+        .mobile-indicators .indicator {
+            width: 0.875rem;
+            height: 0.875rem;
+        }
     }
 </style>
