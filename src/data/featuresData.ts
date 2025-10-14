@@ -17,7 +17,7 @@ export const featuresData: Feature[] = [
     {
         id: 1,
         title: "Diseñador de turnos abierto",
-        description: "Diseña los horarios de tu equipo con total libertad. Sin plantillas, sin turnos genéricos. Un espacio flexible donde cada jornada se adapta exactamente a tus necesidades.",
+        description: "Diseña los horarios de tu equipo con total libertad. Sin plantillas ni turnos genéricos, cada jornada se adapta exactamente a tus necesidades, permitiéndote crear, mover o ajustar franjas horarias según la realidad de tu equipo y los imprevistos diarios.",
         imageSrc: `${baseUrl}general.webp`,
         imageAlt: "Diseñador de turnos abierto",
         theme: "emerald",
@@ -27,7 +27,7 @@ export const featuresData: Feature[] = [
     {
         id: 2,
         title: "Control de turnos desactivados",
-        description: "Ciertos turnos pueden ser desactivados para garantizar el cumplimiento de las restricciones aplicables. Esto se realiza desactivando las franjas horarias correspondientes, como se ilustra en el siguiente ejemplo. Las franjas horarias que no están disponibles se muestran desactivadas y quedan inhabilitadas para selección. Por ejemplo, las franjas horarias se desactivan automáticamente hasta que se hayan cumplido 12 horas desde la salida del turno de trabajo del día anterior.",
+        description: "Permite desactivar franjas horarias para asegurar que los turnos cumplan con todas las restricciones de descanso y normativa interna. Las franjas no disponibles se muestran inhabilitadas y se actualizan automáticamente según los turnos anteriores, evitando errores en la planificación y facilitando una gestión eficiente de los horarios.",
         imageSrc: `${baseUrl}control-doce-horas.webp`,
         imageAlt: "Control de turnos desactivados",
         theme: "red",
@@ -37,7 +37,7 @@ export const featuresData: Feature[] = [
     {
         id: 3,
         title: "Control de Filtros",
-        description: "En el encabezado del área de trabajo, se encuentran dos filtros clave: el primero permite seleccionar un rango de fechas para ajustar la visualización según el intervalo deseado, ofreciendo flexibilidad en la gestión del tiempo. El segundo filtro facilita la visualización del personal por equipo de trabajo, simplificando la organización y gestión en grandes equipos.",
+        description: "Ofrece filtros avanzados en el encabezado del área de trabajo para seleccionar rangos de fechas y visualizar al personal por equipos. Esto permite ajustar la información que se muestra, facilitando la gestión de grandes equipos y proporcionando una visión clara y personalizada del calendario laboral según necesidades específicas.",
         imageSrc: `${baseUrl}control-filtros.webp`,
         imageAlt: "Control de Filtros",
         theme: "blue",
@@ -47,7 +47,7 @@ export const featuresData: Feature[] = [
     {
         id: 4,
         title: "Gestión de disponibilidad",
-        description: "Aquí puedes gestionar la disponibilidad de los empleados, ajustando su calendario según vacaciones, permisos u otros tipos de ausencia. Cuando un empleado está de vacaciones o tiene un permiso, los campos correspondientes se deshabilitan automáticamente y se resaltan en rojo para una identificación visual clara, asegurando una planificación precisa y eficiente.",
+        description: "Permite ajustar la disponibilidad de cada empleado, marcando vacaciones, permisos o cualquier tipo de ausencia. Las franjas no disponibles se resaltan visualmente, evitando conflictos de planificación y facilitando una vista clara de los días en los que cada miembro del equipo puede trabajar, asegurando una programación eficiente y realista.",
         imageSrc: `${baseUrl}control-disponibilidad.webp`,
         imageAlt: "Gestión de disponibilidad",
         theme: "orange",
@@ -57,7 +57,7 @@ export const featuresData: Feature[] = [
     {
         id: 5,
         title: "Pie de zona de trabajo",
-        description: "En esta sección, puedes guardar o restablecer fácilmente el área de trabajo según tus necesidades. También se presenta un resumen detallado del intervalo de tiempo seleccionado, ofreciendo una visión clara de las jornadas laborales de los empleados. Este resumen incluye las horas totales trabajadas, la diferencia con las horas contratadas y un desglose visual de las horas trabajadas por día. Además, en la zona de resumen por días, el sistema detecta automáticamente los días festivos y ajusta la base de horas del empleado en consecuencia, asegurando un cálculo preciso y eficiente.",
+        description: "Proporciona un resumen completo del área de trabajo, permitiendo guardar o restablecer configuraciones y mostrando totales de horas, diferencias con las horas contratadas y un desglose diario. Además, ajusta automáticamente los días festivos, ofreciendo un control preciso y visual de la actividad laboral de todo el equipo.",
         imageSrc: `${baseUrl}pie-zona-trabajo.webp`,
         imageAlt: "Pie de zona de trabajo",
         theme: "green",
@@ -67,7 +67,7 @@ export const featuresData: Feature[] = [
     {
         id: 6,
         title: "Resumen de turnos por empleado",
-        description: "Explora un listado detallado de los turnos laborales en un formato claro y estructurado. Esta sección identifica automáticamente los turnos partidos y presenta una vista intuitiva y fácil de entender para cada empleado. Además, ofrece un resumen completo del período seleccionado, incluyendo la base de horas programadas, las horas ya trabajadas y las pendientes por gestionar.",
+        description: "Muestra un listado completo y detallado de todos los turnos de cada empleado, identificando automáticamente los partidos y ofreciendo un resumen completo del período seleccionado, incluyendo base de horas, horas trabajadas y pendientes por gestionar, facilitando la toma de decisiones y la planificación del equipo.",
         imageSrc: `${baseUrl}resumen-semanal.webp`,
         imageAlt: "Resumen de turnos por empleado",
         theme: "yellow",
@@ -77,7 +77,7 @@ export const featuresData: Feature[] = [
     {
         id: 7,
         title: "Registro de Jornada",
-        description: "Registra tus entradas y salidas de forma rápida y sencilla. Una interfaz intuitiva que garantiza fichajes precisos y un control horario fiable para todo el equipo.",
+        description: "Permite a los empleados registrar entradas y salidas de forma rápida y precisa mediante una interfaz intuitiva, manteniendo un control horario fiable para todo el equipo y asegurando que cada jornada quede correctamente documentada.",
         imageSrc: `${baseUrl}registro-jornada.webp`,
         imageAlt: "Herramienta de Fichajes",
         theme: "red",
@@ -87,18 +87,17 @@ export const featuresData: Feature[] = [
     {
         id: 8,
         title: "Revisión de fichajes",
-        description: "Revisa y gestiona todos los fichajes de tus empleados desde un solo lugar. Visualiza entradas y salidas, corrige errores y asegura la precisión de los registros diarios.",
+        description: "Permite revisar y gestionar todos los fichajes de los empleados desde un único lugar. Se pueden visualizar entradas y salidas, corregir errores y validar registros, garantizando la exactitud de la información diaria y ofreciendo un control fiable de la asistencia y actividad del personal.",
         imageSrc: `${baseUrl}revision-fichajes.webp`,
         imageAlt: "Revisión de fichajes",
         theme: "red",
         badge: "Supervisión Avanzada",
-        icon: "M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75"
-    }
-    ,
+        icon: "M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5"
+    },
     {
         id: 9,
         title: "Vista de Planificación Mensual",
-        description: "Visualiza de un vistazo tus turnos y ausencias del mes, con una vista clara y organizada de tu horario.",
+        description: "Ofrece una visión completa del mes, mostrando turnos y ausencias de cada empleado de manera clara y organizada. Facilita la planificación a largo plazo y permite identificar rápidamente los días con conflictos, ausencias o disponibilidad limitada, asegurando un control detallado de la programación mensual.",
         imageSrc: `${baseUrl}planificacion-mensual-admin.webp`,
         imageAlt: "Planificación mensual",
         theme: "purple",
@@ -108,47 +107,43 @@ export const featuresData: Feature[] = [
     {
         id: 10,
         title: "Configurador Semanal",
-        description: "Genera nuevas semanas de trabajo de forma fácil mediante la asignación de turnos genéricos preestablecidos.",
+        description: "Permite generar nuevas semanas de trabajo mediante la asignación de turnos genéricos preestablecidos, agilizando la planificación y facilitando la creación de horarios consistentes. La función permite modificar los turnos si es necesario, garantizando flexibilidad y ahorro de tiempo en la gestión semanal del personal.",
         imageSrc: `${baseUrl}setup-week.webp`,
         imageAlt: "Setup Week",
         theme: "emerald",
         badge: "Automatización Inteligente",
         icon: "M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z"
-    }
-    ,
+    },
     {
         id: 11,
         title: "Inserción de Turnos Puntuales",
-        description: "Gestiona facilmente la inserción o modificación de turnos puntuales mediante formulario. Con esta funcionalidad, se facilita la inserción de turnos sin necesidad de abrir el panel gráfico haciendo mas comodo el trabajo en dispositivos moviles.",
+        description: "Facilita la inserción o modificación de turnos puntuales mediante un formulario sencillo, sin necesidad de abrir el panel gráfico. Esto permite gestionar cambios rápidos, ajustes inesperados y organizar el trabajo de manera eficiente, especialmente desde dispositivos móviles o tabletas.",
         imageSrc: `${baseUrl}turnos-puntuales.webp`,
         imageAlt: "Turnos Puntuales",
         theme: "orange",
         badge: "Gestión Rápida",
         icon: "M12 4.5v15m7.5-7.5h-15"
-    }
-    ,
+    },
     {
         id: 12,
         title: "Elaboración de Reportes",
-        description: "Genera informes detallados seleccionando un rango de fechas, con totales de horas y personal del mes, y desglose por empleado y tipo de horas, para un control preciso de la actividad.",
+        description: "Genera informes detallados de cualquier período seleccionado, incluyendo totales de horas, ausencias y desglose por empleado y tipo de horas. Esta funcionalidad permite un control exhaustivo de la actividad laboral, facilita la toma de decisiones y ofrece datos claros y visuales para análisis internos o informes ejecutivos.",
         imageSrc: `${baseUrl}reportes-mensuales.webp`,
         imageAlt: "Elaboración Reportes",
         theme: "yellow",
         badge: "Informes Ejecutivos",
         icon: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"
-    }
-    ,
+    },
     {
         id: 13,
         title: "Gestión de Empleados",
-        description: "Gestiona todos los datos de los empleados, fechas de alta y baja, equipo de trabajo, periodos de ausencia, gestión de disponibilidad",
+        description: "Permite administrar todos los datos de los empleados incluyendo fechas de alta y baja, asignación a equipos de trabajo, periodos de ausencia y disponibilidad. Facilita la gestión integral de recursos humanos y asegura que toda la información relevante esté centralizada y siempre actualizada para la planificación de turnos y análisis interno.",
         imageSrc: `${baseUrl}gestion-usuarios.webp`,
         imageAlt: "Gestión Empleados",
         theme: "orange",
         badge: "Recursos Humanos",
         icon: "M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"
-    }
-    ,
+    },
     {
         id: 14,
         title: "Gestión de Acceso Mediante Roles",
