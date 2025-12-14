@@ -132,6 +132,18 @@ export const guideData: GuideCategory[] = [
                         ]
                     },
                     {
+                        id: "vista-distribucion",
+                        title: "4. Control de empleados por franja horaria",
+                        content: "  En la última línea del día podemos ver los empleados activos por franja horaria. Se dispone de dos modos de visualización a los que se accede clicando sobre 'Personas'. En el primer modo de visualización se verán los empleados activos totales por franja horaria, mientras que en el segundo modo se verán solo los del equipo seleccionado.",
+                        image: `${baseUrl}/images/guide/distribucion.webp`,
+                        features: [
+                            "**Activación por clic:** La vista de distribución se activa haciendo clic sobre el texto 'Personas' situado en la parte inferior del día, permitiendo alternar entre los distintos modos de visualización disponibles.",
+                            "**Distribución por franja horaria:** En esta vista se muestra el número de empleados activos en cada franja horaria del día, facilitando la detección de picos de carga o posibles carencias de personal.",
+                            "**Dos modos de visualización:** El primer modo muestra el total de empleados activos por franja horaria. El segundo modo muestra únicamente los empleados pertenecientes al equipo seleccionado.",
+                            "**Análisis rápido de cobertura:** Esta vista permite comprobar de un vistazo si la cobertura de personal es adecuada a lo largo del día, ayudando a tomar decisiones de ajuste en la planificación.",
+                        ]
+                    },
+                    {
                         id: "resumen-periodo",
                         title: "3. Resumen del periodo",
                         content: "En la parte final de la página encontraremos un resumen del periodo seleccionado, donde podremos consultar información detallada.",
