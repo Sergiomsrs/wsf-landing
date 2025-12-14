@@ -77,7 +77,7 @@ export const guideData: GuideCategory[] = [
                         id: "panel-administracion",
                         title: "Panel de Administración",
                         content: "Acceso al panel de elaboración de cuadrantes y gestión completa del sistema.",
-                        image: "/images/guide/panel-administracion.png"
+                        image: `${baseUrl}/images/guide/admin-panel.webp`
                     }
                 ]
             }
@@ -96,7 +96,7 @@ export const guideData: GuideCategory[] = [
                         id: "cabecera-ventana",
                         title: "1. Cabecera de la ventana",
                         content: "En esta cabecera se encuentran algunos elementos indicativos como el número de empleados cargados en el periodo y las horas totales de trabajo de ese periodo.",
-                        image: "/images/guide/cabecera.png",
+                        image: `${baseUrl}/images/guide/cabecera.webp`,
                         features: [
                             "**Selección de fechas a mostrar:** Aquí podrás seleccionar el intervalo de fechas a mostrar en la pizarra. Al hacer clic en obtener, el sistema descargará todos los días comprendidos entre esas dos fechas. Cada día solo contendrá los empleados activos ese día, así como los datos de jornada semanal y equipo de trabajo.",
                             "**Filtro por equipos:** Al trabajar con equipos grandes se requiere de una visualización más ajustada. Mediante esta funcionalidad podrás ver en pantalla solo los equipos seleccionados.",
@@ -110,13 +110,25 @@ export const guideData: GuideCategory[] = [
                         id: "pizarra-trabajo",
                         title: "2. Pizarra de trabajo",
                         content: "La pizarra de trabajo es el espacio donde elaborar la planificación. Está dividida en periodos de 15 minutos, en esta etapa inicial, de 7 de la mañana a 10:30 de la noche. Muestra la información del empleado, horas totales por empleado y horas totales por día.",
-                        image: "/images/guide/pizarra-trabajo.png",
+                        image: `${baseUrl}/images/guide/roster-board.webp`,
                         features: [
                             "**Inserción de horas mediante ratón o teclado:** Puedes hacer clic en cada celda para rellenarla o clicar y arrastrar para completar toda la sección. También es posible operar desde el teclado, navegando por el panel y marcando las celdas una a una con la barra espaciadora, o seleccionando varias manteniendo pulsada la tecla *Shift* junto con las flechas de dirección.",
                             "**Turnos deshabilitados:** Las celdas marcadas en rojo indican turnos deshabilitados. Esto puede deberse a vacaciones, periodos de no disponibilidad del trabajador o por motivos legales, como que no hayan transcurrido 12 horas desde la finalización del turno anterior.",
                             "**Resolución de conflictos:** Cuando un empleado tiene una solicitud de no disponibilidad y le coincide con un turno de trabajo, aparecerá en amarillo y parpadeando para que podamos resolver el conflicto como sea conveniente.",
-                            "**Vista de empleados activos:** Además del filtrado por equipos y por nombre disponible en la cabecera, desde la pizarra podrás activar una vista que muestra únicamente a los empleados que trabajan ese día, haciendo clic en el icono del reloj.",
                             "**Vista de distribución:** En la última línea del día podemos ver los empleados activos por franja horaria. Se dispone de dos modos de visualización a los que se accede clicando sobre 'Personas'. En el primer modo de visualización se verán los empleados activos totales por franja horaria, mientras que en el segundo modo se verán solo los del equipo seleccionado."
+                        ]
+                    },
+                    {
+                        id: "vista-activos",
+                        title: "3. Vista de empleados activos",
+                        content: " Además del filtrado por equipos y por nombre disponible en la cabecera, desde la pizarra podrás activar una vista que muestra únicamente a los empleados que trabajan ese día, haciendo clic en el icono del reloj.",
+                        image: `${baseUrl}/images/guide/filtro-activos.webp`,
+                        features: [
+                            "**Activación y desactivación por clic:** La vista de empleados activos se activa y desactiva haciendo clic sobre el icono del reloj, permitiendo alternar rápidamente entre la vista completa y la vista filtrada.",
+                            "**Filtrado automático por día:** Al activar esta vista, solo se muestran los empleados que tienen turno asignado en el día seleccionado, ocultando automáticamente a quienes no trabajan.",
+                            "**Mejora de la claridad visual:** Al eliminar de la pizarra a los empleados inactivos, el cuadrante resulta más limpio y fácil de interpretar, especialmente en días con muchos trabajadores.",
+                            "**Optimizada para revisión del cuadrante:** Esta vista es especialmente útil una vez finalizada la planificación, ya que permite revisar la distribución real del personal sin distracciones.",
+                            "**Compatible con otros filtros:** La vista de empleados activos funciona de forma combinada con los filtros de equipo y búsqueda por nombre disponibles en la cabecera."
                         ]
                     },
                     {

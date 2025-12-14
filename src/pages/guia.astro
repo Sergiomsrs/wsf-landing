@@ -166,4 +166,145 @@ import { guideData } from "../data/guideData";
             padding: 1.5rem 1rem;
         }
     }
+
+    /* Image Modal Lightbox */
+    .image-modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        animation: fadeIn 0.2s ease;
+    }
+
+    .image-modal.active {
+        display: flex;
+    }
+
+    .image-modal-content {
+        position: relative;
+        max-width: 100%;
+        max-height: 100%;
+        animation: zoomIn 0.3s ease;
+    }
+
+    .image-modal-content img {
+        max-width: 100%;
+        max-height: 90vh;
+        width: auto;
+        height: auto;
+        border-radius: 0.5rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .image-modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 3rem;
+        height: 3rem;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+
+    .image-modal-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes zoomIn {
+        from {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
 </style>
+
+<script>
+    document.addEventListener("click", (e) => {
+        const target = e.target as HTMLElement;
+
+        // Verificar si se hizo click en una imagen con el atributo data-image-modal en su contenedor
+        if (target.tagName === "IMG" && target.closest("[data-image-modal]")) {
+            e.preventDefault();
+            const img = target as HTMLImageElement;
+            const src = img.getAttribute("data-image-src") || img.src;
+            const alt = img.alt;
+            openImageModal(src, alt);
+        }
+    });
+
+    let imageModal: HTMLElement | null = null;
+
+    function openImageModal(src: string, alt: string) {
+        if (!imageModal) {
+            imageModal = document.createElement("div");
+            imageModal.className = "image-modal";
+            imageModal.innerHTML = `
+                <div class="image-modal-content">
+                    <img src="${src}" alt="${alt}" />
+                </div>
+                <div class="image-modal-close">×</div>
+            `;
+            document.body.appendChild(imageModal);
+
+            const closeBtn = imageModal.querySelector(".image-modal-close");
+            closeBtn?.addEventListener("click", closeImageModal);
+
+            imageModal.addEventListener("click", (e) => {
+                if (e.target === imageModal) {
+                    closeImageModal();
+                }
+            });
+
+            document.addEventListener("keydown", (e) => {
+                if (
+                    e.key === "Escape" &&
+                    imageModal?.classList.contains("active")
+                ) {
+                    closeImageModal();
+                }
+            });
+        } else {
+            const img = imageModal.querySelector("img");
+            if (img) {
+                img.src = src;
+                img.alt = alt;
+            }
+        }
+
+        imageModal.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeImageModal() {
+        imageModal?.classList.remove("active");
+        document.body.style.overflow = "";
+    }
+</script>
