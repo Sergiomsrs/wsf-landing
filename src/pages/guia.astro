@@ -1,0 +1,169 @@
+---
+import GuideLayout from "../layouts/GuideLayout.astro";
+import GuideSidebar from "../components/guide/GuideSidebar.astro";
+import GuideSection from "../components/guide/GuideSection.astro";
+import GuideMobileNav from "../components/guide/GuideMobileNav.astro";
+import { guideData } from "../data/guideData";
+---
+
+<GuideLayout>
+    <div class="guide-container">
+        <GuideSidebar categories={guideData} />
+        <GuideMobileNav categories={guideData} />
+
+        <main class="guide-main">
+            <header class="guide-header">
+                <div class="header-content">
+                    <a href="/" class="logo-link">
+                        <h1 class="logo-title">WorkSchedFlow</h1>
+                    </a>
+                    <p class="header-subtitle">
+                        Guía completa de uso de la aplicación
+                    </p>
+                </div>
+            </header>
+
+            <article class="guide-content">
+                {
+                    guideData.map((category) => (
+                        <div class="category-wrapper">
+                            {category.sections.map((section) => (
+                                <GuideSection section={section} />
+                            ))}
+                        </div>
+                    ))
+                }
+
+                <div class="guide-footer">
+                    <div class="footer-divider"></div>
+                    <p class="footer-text">
+                        ¿Necesitas más ayuda? <a href="/" class="footer-link"
+                            >Volver al inicio</a
+                        >
+                    </p>
+                </div>
+            </article>
+        </main>
+    </div>
+</GuideLayout>
+
+<style>
+    .guide-container {
+        min-height: 100vh;
+    }
+
+    .guide-main {
+        margin-left: 260px;
+        min-width: 0;
+    }
+
+    .guide-header {
+        padding: 3rem 3rem 3rem 2rem;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-content {
+        max-width: 100%;
+    }
+
+    .logo-link {
+        text-decoration: none;
+    }
+
+    .logo-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #7877c6 0%, #a5a4e8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+    }
+
+    .header-subtitle {
+        font-size: 1.125rem;
+        color: #94a3b8;
+        margin: 0;
+    }
+
+    .guide-content {
+        max-width: 100%;
+        padding: 3rem 3rem 3rem 2rem;
+    }
+
+    .category-wrapper {
+        margin-bottom: 2rem;
+    }
+
+    .guide-footer {
+        margin-top: 4rem;
+        padding-top: 2rem;
+    }
+
+    .footer-divider {
+        height: 1px;
+        background: linear-gradient(
+            to right,
+            transparent,
+            rgba(148, 163, 184, 0.2),
+            transparent
+        );
+        margin-bottom: 2rem;
+    }
+
+    .footer-text {
+        text-align: center;
+        color: #94a3b8;
+        font-size: 0.875rem;
+    }
+
+    .footer-link {
+        color: #7877c6;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+
+    .footer-link:hover {
+        color: #a5a4e8;
+    }
+
+    @media (max-width: 1024px) {
+        .guide-main {
+            margin-left: 0;
+        }
+
+        .guide-header {
+            padding: 5rem 1.5rem 2rem;
+        }
+
+        .logo-title {
+            font-size: 2rem;
+        }
+
+        .header-subtitle {
+            font-size: 1rem;
+        }
+
+        .guide-content {
+            padding: 2rem 1.5rem;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .guide-header {
+            padding: 5rem 1rem 1.5rem;
+        }
+
+        .logo-title {
+            font-size: 1.75rem;
+        }
+
+        .guide-content {
+            padding: 1.5rem 1rem;
+        }
+    }
+</style>
