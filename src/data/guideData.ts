@@ -13,6 +13,7 @@ export interface GuideSubsection {
     title: string;
     content: string;
     image?: string;
+    video?: string;
     features?: string[];
 }
 
@@ -119,6 +120,16 @@ export const guideData: GuideCategory[] = [
                         ]
                     },
                     {
+                        id: "control-filtros",
+                        title: "2. Control de filtros",
+                        content: "La pizarra de trabajo es el espacio donde elaborar la planificación. Está dividida en periodos de 15 minutos, en esta etapa inicial, de 7 de la mañana a 10:30 de la noche. Muestra la información del empleado, horas totales por empleado y horas totales por día.",
+                        video: `${baseUrl}/images/guide/filtros.mp4`,
+                        features: [
+                            "**Filtrado por nombre:** Si necesitas trabajar solo el horario de un empleado en ese periodo, podrás hacerlo mediante este filtro y solo te aparecerá su línea de trabajo.",
+                            "**Resetear los filtros:** La cabecera cuenta con un botón mediante el que resetear todos los filtros y ver de nuevo la ventana completa.",
+                        ]
+                    },
+                    {
                         id: "vista-activos",
                         title: "3. Vista de empleados activos",
                         content: " Además del filtrado por equipos y por nombre disponible en la cabecera, desde la pizarra podrás activar una vista que muestra únicamente a los empleados que trabajan ese día, haciendo clic en el icono del reloj.",
@@ -147,7 +158,7 @@ export const guideData: GuideCategory[] = [
                         id: "resumen-periodo",
                         title: "3. Resumen del periodo",
                         content: "En la parte final de la página encontraremos un resumen del periodo seleccionado, donde podremos consultar información detallada.",
-                        image: "/images/guide/resumen-periodo.png",
+                        image: `${baseUrl}/images/guide/resumen.webp`,
                         features: [
                             "**Jornada laboral:** Horas que el empleado debe realizar durante el periodo. Se calculan en función de su jornada diaria, teniendo en cuenta casos en los que el empleado cambia de jornada a mitad del periodo.",
                             "**Horas trabajadas:** Total de horas efectivamente realizadas durante el periodo.",
@@ -167,25 +178,31 @@ export const guideData: GuideCategory[] = [
                         id: "seleccionar-semana",
                         title: "1. Seleccionar la semana genérica",
                         content: "El sistema admite hasta 6 semanas diferentes para configurar turnos genéricos.",
-                        image: "/images/guide/semana-generica.png"
+                        image: `${baseUrl}/images/guide/generic-header.webp`
                     },
                     {
                         id: "disenar-planificacion",
                         title: "2. Diseñar la planificación",
                         content: "Diseñar la planificación de los empleados genéricos para todos los días de esa semana.",
-                        image: "/images/guide/planificacion-generica.png"
+                        image: `${baseUrl}/images/guide/generic-roster.webp`
                     },
                     {
                         id: "asignar-turnos",
                         title: "3. Asignar los turnos genéricos",
                         content: "**Asignación flexible de turnos:** No es necesario asignar todos los turnos de la semana de una sola vez. Puedes trabajar empleado por empleado. Si una semana ya está creada, también es posible asignar un turno individualmente a un único empleado sin necesidad de rehacer toda la planificación.",
-                        image: "/images/guide/asignar-turnos.png",
+                        image: `${baseUrl}/images/guide/generic-config.webp`,
                         features: [
                             "Desplegable para asignar el empleado que realizará el turno.",
                             "Botón para asignar el empleado por defecto a ese turno.",
                             "Botón para activar o desactivar el turno genérico. El sistema cuenta con 50 turnos disponibles y solo los turnos activos aparecerán en la ventana de diseño.",
                             "Botón para poner en blanco todos los empleados asignados. Este botón está pensado para cuando solo se quiere añadir una persona al cuadrante."
                         ]
+                    },
+                    {
+                        id: "configurar-semana",
+                        title: "Configurar los roles y empleados para la semana laboral",
+                        content: "Una vez configurados los turnos, deberás elegir la semana genérica y la fecha concreta a la que se aplicarán. Tras asignar los turnos, es necesario cargar la semana en la Roster Page, donde podrás revisar y solucionar posibles conflictos derivados de vacaciones, ausencias o periodos de no disponibilidad. Como mencionamos en el punto 1, estos conflictos aparecerán marcados con un parpadeo amarillo.",
+                        image: `${baseUrl}/images/guide/generic-select.webp`
                     },
                     {
                         id: "configuracion-empleados",
@@ -196,7 +213,7 @@ export const guideData: GuideCategory[] = [
                         id: "resolucion-conflictos",
                         title: "4. Selección de la semana y resolución de conflictos",
                         content: "Una vez configurados los turnos, deberás elegir la semana genérica y la fecha concreta a la que se aplicarán. Tras asignar los turnos, es necesario cargar la semana en la **Roster Page**, donde podrás revisar y solucionar posibles conflictos derivados de vacaciones, ausencias o periodos de no disponibilidad.",
-                        image: "/images/guide/seleccion-semana.png",
+                        image: `${baseUrl}/images/guide/conflicts.webp`,
                         features: [
                             "Seleccionar la semana asignada. Se rellena la fecha de inicio que siempre debe ser lunes y la fecha de fin se auto completará.",
                             "Seleccionar el ciclo que representa la semana genérica a asignar.",
@@ -207,22 +224,95 @@ export const guideData: GuideCategory[] = [
                         id: "conflictos-ejemplo",
                         title: "Ejemplo de resolución de conflictos",
                         content: "Como vimos anteriormente, un empleado puede tener días de vacaciones asignados y franjas horarias en las que no puede trabajar por motivos personales. En el caso de asignarle un turno mediante este proceso, se marcará en amarillo en la planificación para que se pueda solucionar.",
-                        image: "/images/guide/conflicto-ejemplo.png",
-                        note: "Empleado con periodo de no disponibilidad de 13:00 a 16:30 al que se le ha asignado un turno de trabajo hasta las 14:00. En este punto el sistema nos permitirá modificar la disponibilidad del empleado o eliminar esas horas del cuadrante. Mientras las horas están en amarillo no se tienen en cuenta en términos de cómputo de jornada ni de distribución de la franja horaria."
+                        image: `${baseUrl}/images/guide/generic-roster.webp`,
                     }
                 ],
                 video: "https://youtu.be/WRrTnhw_hBo"
             },
             {
-                id: "insercion-turnos-formulario",
-                title: "Inserción de turnos mediante Formulario",
-                content: "Próximamente se documentará esta funcionalidad."
+                id: "turnos-formulario",
+                title: "Inserción de turnos individuales mediante formulario",
+                content: "El formulario de registro de turnos permite asignar manualmente un turno concreto a un empleado en una fecha y franja horaria específicas. Esta funcionalidad está pensada para ajustes puntuales, correcciones o asignaciones fuera de la planificación genérica.",
+                subsections: [
+                    {
+                        id: "informacion-general",
+                        title: "1. Información general del formulario",
+                        content: "Desde la vista **Registrar Turno**, el usuario puede seleccionar un empleado, una fecha y un horario de inicio y fin para crear un turno individual. El sistema guía el proceso mediante validaciones visuales y feedback inmediato.",
+                        image: `${baseUrl}/images/guide/insertar-turno.webp`,
+                        features: [
+                            "Selector de empleado integrado para una selección rápida.",
+                            "Selección de fecha mediante calendario.",
+                            "Definición de hora de inicio y fin en intervalos de 15 minutos.",
+                            "Cálculo automático de la duración total del turno antes de guardarlo.",
+                            "El formulario se limpia automáticamente tras guardar un turno correctamente."
+                        ]
+                    },
+                    {
+                        id: "validaciones-solapamientos",
+                        title: "2. Validaciones y solapamiento de turnos",
+                        content: "Antes de guardar el turno, el sistema valida que la información sea correcta. Si el turno se solapa con otro turno existente del mismo empleado, el registro no se completará y se mostrará un mensaje de error.",
+                        image: `${baseUrl}/images/guide/consejos.webp`,
+                        features: [
+                            "Todos los campos son obligatorios.",
+                            "La hora de fin debe ser posterior a la hora de inicio.",
+                            "Los horarios se ajustan automáticamente al cuarto de hora inferior.",
+                            "No se permite registrar turnos solapados para un mismo empleado.",
+                            "Mensajes de error claros cuando la validación falla."
+                        ]
+                    }
+
+                ],
             },
             {
                 id: "gestion-usuarios",
                 title: "Gestión de usuarios",
-                content: "Próximamente se documentará esta funcionalidad."
+                content: "La sección de gestión de usuarios permite crear, modificar y eliminar usuarios del sistema, así como administrar toda la información asociada a cada empleado: rol, jornada laboral, equipo de trabajo, ausencias y disponibilidad.",
+                subsections: [
+                    {
+                        id: "gestion-datos-usuario",
+                        title: "1. Creación y gestión de usuarios",
+                        content: "Desde esta vista se pueden crear nuevos usuarios o gestionar usuarios existentes. Cada usuario puede tener rol de **administrador** o **usuario**, y está vinculado a un empleado del sistema.",
+                        image: `${baseUrl}/images/guide/add-user.webp`,
+                        features: [
+                            "Creación de nuevos usuarios desde un único formulario.",
+                            "Asignación de rol (Administrador o Usuario).",
+                            "Búsqueda de usuarios existentes por email.",
+                            "Selección directa de empleados desde un desplegable.",
+                            "Edición de datos personales y laborales del usuario.",
+                            "Eliminación de usuarios existentes.",
+                            "Validación visual y mensajes de confirmación o error."
+                        ]
+                    },
+                    {
+                        id: "gestion-condiciones-laborales",
+                        title: "2. Gestión de condiciones laborales",
+                        content: "Una vez seleccionado un empleado, el sistema permite gestionar su información laboral histórica y vigente, manteniendo un registro claro de los cambios.",
+                        image: `${baseUrl}/images/guide/user-conditions.webp`,
+                        features: [
+                            "Gestión de jornadas laborales (horas semanales) con fecha de inicio.",
+                            "Histórico de jornadas anteriores del empleado.",
+                            "Asignación y cambio de equipo de trabajo con control de fechas.",
+                            "Visualización del historial completo de equipos asignados.",
+                            "Los cambios no sobrescriben datos anteriores, se registran como históricos."
+                        ]
+                    },
+                    {
+                        id: "gestion-ausencias-disponibilidad",
+                        title: "3. Ausencias y disponibilidad",
+                        content: "El sistema permite registrar tanto ausencias completas como tramos de indisponibilidad horaria para cada empleado.",
+                        image: `${baseUrl}/images/guide/ausencias.webp`,
+                        features: [
+                            "Registro de ausencias con fecha de inicio y fin.",
+                            "Asignación de motivo de ausencia.",
+                            "Listado de ausencias existentes con opción de eliminación.",
+                            "Gestión de disponibilidad horaria por día y franja horaria.",
+                            "Registro de indisponibilidades parciales (hora inicio y fin).",
+                            "Visualización clara de ausencias y disponibilidades activas."
+                        ]
+                    }
+                ],
             },
+
             {
                 id: "registros-jornada",
                 title: "Inserción de registros de jornada",

@@ -58,6 +58,48 @@ function parseMarkdown(text: string) {
                             </div>
                         )}
 
+                        {subsection.video && (
+                            <div class="video-section">
+                                {subsection.video.startsWith("http") ? (
+                                    <>
+                                        <h4 class="video-title">
+                                            Ver demostración en video
+                                        </h4>
+                                        <a
+                                            href={subsection.video}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="video-link"
+                                        >
+                                            <svg
+                                                class="w-6 h-6"
+                                                fill="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                            Ver video
+                                        </a>
+                                    </>
+                                ) : (
+                                    <video
+                                        controls
+                                        autoplay
+                                        loop
+                                        muted
+                                        playsinline
+                                    >
+                                        <source
+                                            src={subsection.video}
+                                            type="video/mp4"
+                                        />
+                                        Tu navegador no soporta el elemento de
+                                        video.
+                                    </video>
+                                )}
+                            </div>
+                        )}
+
                         {subsection.features &&
                             subsection.features.length > 0 && (
                                 <ul class="feature-list">
@@ -87,22 +129,31 @@ function parseMarkdown(text: string) {
     {
         section.video && (
             <div class="video-section">
-                <h4 class="video-title">Ver demostración en video</h4>
-                <a
-                    href={section.video}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="video-link"
-                >
-                    <svg
-                        class="w-6 h-6"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path d="M8 5v14l11-7z" />
-                    </svg>
-                    Ver video
-                </a>
+                {section.video.startsWith("http") ? (
+                    <>
+                        <h4 class="video-title">Ver demostración en video</h4>
+                        <a
+                            href={section.video}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="video-link"
+                        >
+                            <svg
+                                class="w-6 h-6"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                            Ver video
+                        </a>
+                    </>
+                ) : (
+                    <video controls autoplay loop muted playsinline>
+                        <source src={section.video} type="video/mp4" />
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                )}
             </div>
         )
     }
@@ -313,6 +364,18 @@ function parseMarkdown(text: string) {
         background: rgba(15, 23, 42, 0.5);
         border-radius: 0.75rem;
         border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .video-section video {
+        width: 100%;
+        max-width: 1200px;
+        border-radius: 0.5rem;
+        box-shadow:
+            0 4px 6px -1px rgba(0, 0, 0, 0.3),
+            0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        display: block;
+        object-fit: cover;
+        aspect-ratio: 16 / 9;
     }
 
     .video-title {
