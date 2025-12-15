@@ -446,7 +446,7 @@ export const guideData: GuideCategory[] = [
                         id: "acceso-por-rol",
                         title: "1. Acceso y control por roles",
                         content: "El sistema adapta automáticamente la interfaz y las funcionalidades según el rol del usuario autenticado.",
-                        image: `${baseUrl}/images/guide/employee-dashboard.webp`,
+                        image: `${baseUrl}/images/guide/login.webp`,
                         features: [
                             "Gestión de accesos basada en roles.",
                             "El empleado solo puede visualizar información propia.",
@@ -459,6 +459,7 @@ export const guideData: GuideCategory[] = [
                         id: "informacion-laboral",
                         title: "2. Consulta de información laboral",
                         content: "Desde la vista de empleado se puede acceder de forma centralizada a toda la información relacionada con su actividad.",
+                        image: `${baseUrl}/images/guide/vista-mes.webp`,
                         features: [
                             "Visualización de horarios y turnos asignados.",
                             "Consulta del histórico de fichajes de entrada y salida.",
@@ -467,28 +468,99 @@ export const guideData: GuideCategory[] = [
                             "Consulta organizada por fechas y periodos."
                         ]
                     },
-                    {
-                        id: "transparencia-control",
-                        title: "3. Transparencia y control personal",
-                        content: "La vista de empleado está pensada para ofrecer transparencia y facilitar el control personal de la jornada.",
-                        features: [
-                            "Acceso claro al cómputo de horas trabajadas.",
-                            "Detección visual de posibles incidencias de fichaje.",
-                            "Seguimiento del cumplimiento de horarios.",
-                            "Reducción de errores y malentendidos.",
-                            "Mejora de la comunicación entre empleado y gestor."
-                        ]
-                    }
                 ]
             },
 
             /* Reportes mensuales */
             {
-                id: "reportes-mensuales",
-                title: "Acceso a reportes mensuales",
-                content: "Próximamente se documentará esta funcionalidad."
-            },
-            /* Vista de empleado */
+                id: "reportes",
+                title: "Reportes y análisis de horas trabajadas",
+                content: "La sección de reportes permite analizar y consolidar la información de jornadas y fichajes en un periodo determinado. Estos reportes están pensados para facilitar el control horario, la planificación y la toma de decisiones.",
+                subsections: [
+                    {
+                        id: "seleccion-periodo",
+                        title: "1. Selección del periodo de análisis",
+                        content: "El gestor puede generar reportes seleccionando un rango de fechas específico.",
+                        image: `${baseUrl}/images/guide/report-datepicker.webp`,
+                        features: [
+                            "Selección de fecha de inicio y fin mediante calendario.",
+                            "Generación del reporte bajo demanda.",
+                            "Análisis basado únicamente en el periodo seleccionado.",
+                            "Actualización automática de los datos mostrados.",
+                            "Evita cálculos manuales o externos."
+                        ]
+                    },
+                    {
+                        id: "metricas-globales",
+                        title: "2. Métricas globales del periodo",
+                        content: "Una vez generado el reporte, el sistema muestra un resumen con las métricas principales del periodo analizado.",
+                        image: `${baseUrl}/images/guide/report-metricas.webp`,
+                        features: [
+                            "Visualización de las horas totales del periodo.",
+                            "Desglose entre horas base (FTE) y horas extra.",
+                            "Cálculo de horas trabajadas y complementarias.",
+                            "Preparado para incluir horas festivas y nocturnas.",
+                            "Visión global inmediata del estado del periodo."
+                        ]
+                    },
+                    {
+                        id: "detalle-empleado",
+                        title: "3. Detalle de horas por empleado",
+                        content: "El reporte incluye una tabla detallada con el desglose de horas de cada empleado.",
+                        image: `${baseUrl}/images/guide/report-employee.webp`,
+                        features: [
+                            "Listado de empleados incluidos en el periodo.",
+                            "Horas de jornada planificada.",
+                            "Horas efectivamente trabajadas.",
+                            "Cálculo de horas complementarias.",
+                            "Separación de horas festivas y nocturnas.",
+                            "Facilita revisiones individuales y comparativas."
+                        ]
+                    }
+                ]
+            }
+
+
         ]
-    }
+    },
+    /* Modulo IA */
+    {
+        id: "ia",
+        title: "Inteligencia Artificial",
+        sections: [
+            /* Insertar turno IA */
+            {
+                id: "ia-insert",
+                title: "Funciones de IA integradas en la WebApp",
+                content: "El sistema cuenta con un asistente de IA integrado en la aplicación que permite insertar turnos utilizando lenguaje natural. A través de un chat interactivo, el gestor puede comunicarse con la planificación sin necesidad de realizar la asignación manual.",
+                subsections: [
+                    {
+                        id: "chat-ia",
+                        title: "Chat de planificación con IA",
+                        content: "La inserción de turnos mediante IA se realiza desde un chat que interactúa directamente con la página de planificación.",
+                        image: `${baseUrl}/images/guide/chat-ia.webp`,
+                        features: [
+                            "**Interacción en lenguaje natural:** El gestor puede escribir instrucciones como “Añade un turno a Ross Geller este día a esta hora”.",
+                            "**Interpretación automática de la instrucción:** La IA identifica al empleado, la fecha y el horario indicados.",
+                            "**Inserción directa del turno:** El turno se añade automáticamente a la planificación sin intervención manual.",
+                            "**Sincronización inmediata con la Roster Page:** Los cambios realizados mediante IA se reflejan al instante en la pizarra.",
+                            "**Reducción del tiempo de planificación:** Permite realizar ajustes rápidos sin navegar por múltiples vistas."
+                        ]
+                    },
+                    {
+                        id: "analisis-cuadrante",
+                        title: "Analisis de cuadrantes mediante Inteligencia Artificial (Experimental)",
+                        content: "Una vez diseñado el cuadrante se puede interactuar con el chat para realizar ciertas consultas como:",
+                        features: [
+                            "¿Cuantos empleados cierran el dia lunes?",
+                            "¿Esta equilibrada la planificacion a lo largo de la semana?",
+                            "¿Cuales el proximo dia que coindicen estos dos perfiles?",
+                        ]
+                    }
+
+                ]
+            },
+
+        ]
+    },
 ];
