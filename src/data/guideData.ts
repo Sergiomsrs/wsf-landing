@@ -189,7 +189,18 @@ export const guideData: GuideCategory[] = [
                             "**Gráfica del periodo:** En el lateral derecho del resumen se muestra una gráfica visual con los días de trabajo de cada empleado durante el periodo, permitiendo ver de un vistazo la distribución de días trabajados y descansos. También se indican las horas totales por día.",
                             "**Datos totales:** En la última fila de la tabla se presenta el resumen global del periodo, con el total de horas de jornada, horas trabajadas y la desviación acumulada."
                         ]
+                    },
+                    {
+                        id: "vista-impresion",
+                        title: "8. Vista de impresión y exportación a PDF",
+                        content: "Clicando en el botón de imprimir tendrás acceso de forma rápida a la vista de impresión, permitiendo generar un resumen claro y profesional de los turnos y jornadas.",
+                        image: `${baseUrl}/images/guide/print.webp`,
+                        features: [
+                            "**Exportación a PDF:** La vista de impresión permite guardar o compartir el resumen en formato PDF, facilitando su archivo o distribución.",
+                            "**Optimizada para impresión:** El diseño se ajusta automáticamente para papel, asegurando que todos los datos y gráficos se vean claros y legibles al imprimir."
+                        ]
                     }
+
                 ]
             },
             /* Turnos Genericos */
