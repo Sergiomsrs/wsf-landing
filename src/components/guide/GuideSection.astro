@@ -162,19 +162,23 @@ function parseMarkdown(text: string) {
 <style>
     .guide-section {
         margin-bottom: 4rem;
-        scroll-margin-top: 2rem;
+        scroll-margin-top: 6rem;
     }
 
     .section-title {
         font-size: 2rem;
         font-weight: 700;
-        background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: 1.5rem;
-        padding-bottom: 0.75rem;
-        border-bottom: 2px solid rgba(120, 119, 198, 0.5);
+        background: linear-gradient(
+            135deg,
+            rgba(120, 119, 198, 0.2) 0%,
+            rgba(165, 164, 232, 0.15) 100%
+        );
+        color: #ffffff;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        border-left: 4px solid #7877c6;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
     .section-content {
@@ -233,7 +237,7 @@ function parseMarkdown(text: string) {
 
     .subsection {
         margin-bottom: 3rem;
-        scroll-margin-top: 2rem;
+        scroll-margin-top: 6rem;
     }
 
     .subsection-title {

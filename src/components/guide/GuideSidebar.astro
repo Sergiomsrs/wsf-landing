@@ -216,6 +216,26 @@ const { categories, currentSection } = Astro.props;
 </style>
 
 <script>
+    // Smooth scroll to exact top position when clicking sidebar links
+    document
+        .querySelectorAll(".section-link, .subsection-link")
+        .forEach((link) => {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute("href")?.substring(1);
+                if (targetId) {
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop;
+                        window.scrollTo({
+                            top: offsetTop - 20,
+                            behavior: "smooth",
+                        });
+                    }
+                }
+            });
+        });
+
     // Highlight active section on scroll
     const observer = new IntersectionObserver(
         (entries) => {

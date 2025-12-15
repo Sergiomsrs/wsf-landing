@@ -98,31 +98,52 @@ const { categories } = Astro.props;
 
         .mobile-nav-toggle {
             position: fixed;
-            top: 1rem;
-            left: 1rem;
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 40;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1rem;
-            background: rgba(15, 23, 42, 0.9);
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(
+                135deg,
+                rgba(15, 23, 42, 0.95) 0%,
+                rgba(30, 41, 59, 0.95) 100%
+            );
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            border-radius: 0.5rem;
+            border: none;
+            border-bottom: 1px solid rgba(120, 119, 198, 0.3);
             color: white;
-            font-weight: 500;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
         .mobile-nav-toggle:hover {
-            background: rgba(120, 119, 198, 0.2);
-            border-color: #7877c6;
+            background: linear-gradient(
+                135deg,
+                rgba(30, 41, 59, 0.98) 0%,
+                rgba(15, 23, 42, 0.98) 100%
+            );
+            border-bottom-color: rgba(165, 164, 232, 0.5);
+        }
+
+        .mobile-nav-toggle:active {
+            transform: scale(0.98);
+        }
+
+        .mobile-nav-toggle span {
+            font-weight: 600;
+            font-size: 1rem;
+            flex: 1;
+            text-align: left;
         }
 
         .menu-icon {
             width: 1.5rem;
             height: 1.5rem;
+            flex-shrink: 0;
         }
 
         .mobile-nav-overlay {

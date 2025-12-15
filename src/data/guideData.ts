@@ -26,6 +26,7 @@ export interface GuideCategory {
 const baseUrl = import.meta.env.BASE_URL;
 
 export const guideData: GuideCategory[] = [
+    /* Modulo Introduccion */
     {
         id: "introduccion",
         title: "Introducción",
@@ -84,15 +85,18 @@ export const guideData: GuideCategory[] = [
             }
         ]
     },
+    /* Modulo Secciones Principales */
     {
         id: "secciones-principales",
         title: "Secciones Principales",
         sections: [
+            /* Roster Page */
             {
                 id: "roster-page",
                 title: "Roster Page - Elaboración de Cuadrantes",
                 content: "La elaboración de cuadrantes se realizará principalmente desde la Roster Page. Esta es nuestra pizarra de visualización del equipo y está dividida en tres partes.",
                 subsections: [
+                    /* Cabecera ventana */
                     {
                         id: "cabecera-ventana",
                         title: "1. Cabecera de la ventana",
@@ -104,9 +108,10 @@ export const guideData: GuideCategory[] = [
                             "**Filtrado por nombre:** Si necesitas trabajar solo el horario de un empleado en ese periodo, podrás hacerlo mediante este filtro y solo te aparecerá su línea de trabajo.",
                             "**Resetear los filtros:** La cabecera cuenta con un botón mediante el que resetear todos los filtros y ver de nuevo la ventana completa.",
                             "**Botón de guardar:** Al ir realizando cambios en la planificación se irán añadiendo al stage y será al clicar en el botón de guardar cuando se envíen a la base de datos.",
-                            "**Botón de Imprimir:** Con este botón podrás imprimir todos los días del periodo seleccionado en un formato claro para su lectura en papel o pdf."
+                            "**Botón de Imprimir:** Con este botón podrás imprimir todos los días del periodo seleccionado en un formato claro para su lectura en papel o PDF."
                         ]
                     },
+                    /* Pizarra de Trabajo */
                     {
                         id: "pizarra-trabajo",
                         title: "2. Pizarra de trabajo",
@@ -119,9 +124,10 @@ export const guideData: GuideCategory[] = [
                             "**Vista de distribución:** En la última línea del día podemos ver los empleados activos por franja horaria. Se dispone de dos modos de visualización a los que se accede clicando sobre 'Personas'. En el primer modo de visualización se verán los empleados activos totales por franja horaria, mientras que en el segundo modo se verán solo los del equipo seleccionado."
                         ]
                     },
+                    /* Control de filtros  */
                     {
                         id: "control-filtros",
-                        title: "2. Control de filtros",
+                        title: "3. Control de filtros",
                         content: "La pizarra de trabajo es el espacio donde elaborar la planificación. Está dividida en periodos de 15 minutos, en esta etapa inicial, de 7 de la mañana a 10:30 de la noche. Muestra la información del empleado, horas totales por empleado y horas totales por día.",
                         video: `${baseUrl}/images/guide/filtros.mp4`,
                         features: [
@@ -129,9 +135,10 @@ export const guideData: GuideCategory[] = [
                             "**Resetear los filtros:** La cabecera cuenta con un botón mediante el que resetear todos los filtros y ver de nuevo la ventana completa.",
                         ]
                     },
+                    /* Vista empleados activos  */
                     {
                         id: "vista-activos",
-                        title: "3. Vista de empleados activos",
+                        title: "4. Vista de empleados activos",
                         content: " Además del filtrado por equipos y por nombre disponible en la cabecera, desde la pizarra podrás activar una vista que muestra únicamente a los empleados que trabajan ese día, haciendo clic en el icono del reloj.",
                         image: `${baseUrl}/images/guide/filtro-activos.webp`,
                         features: [
@@ -142,9 +149,10 @@ export const guideData: GuideCategory[] = [
                             "**Compatible con otros filtros:** La vista de empleados activos funciona de forma combinada con los filtros de equipo y búsqueda por nombre disponibles en la cabecera."
                         ]
                     },
+                    /* Vista distribucion  */
                     {
                         id: "vista-distribucion",
-                        title: "4. Control de empleados por franja horaria",
+                        title: "5. Control de empleados por franja horaria",
                         content: "  En la última línea del día podemos ver los empleados activos por franja horaria. Se dispone de dos modos de visualización a los que se accede clicando sobre 'Personas'. En el primer modo de visualización se verán los empleados activos totales por franja horaria, mientras que en el segundo modo se verán solo los del equipo seleccionado.",
                         image: `${baseUrl}/images/guide/distribucion.webp`,
                         features: [
@@ -154,9 +162,24 @@ export const guideData: GuideCategory[] = [
                             "**Análisis rápido de cobertura:** Esta vista permite comprobar de un vistazo si la cobertura de personal es adecuada a lo largo del día, ayudando a tomar decisiones de ajuste en la planificación.",
                         ]
                     },
+                    /* Control 12 horas  */
+                    {
+                        id: "control-12h",
+                        title: "6. Control de descanso mínimo de 12 horas",
+                        content: "El sistema garantiza el cumplimiento del descanso mínimo legal entre turnos. Al asignar un turno, se comprueba automáticamente que hayan transcurrido al menos 12 horas desde el último turno realizado por el empleado.",
+                        image: `${baseUrl}/images/guide/control-12h.webp`,
+                        features: [
+                            "**Validación automática del descanso:** No se permite asignar un nuevo turno a un empleado si no han transcurrido 12 horas desde la finalización de su último turno.",
+                            "**Bloqueo visual de franjas horarias:** Las franjas que incumplen el descanso mínimo aparecen deshabilitadas y sombreadas en rojo.",
+                            "**Prevención de errores de planificación:** Las casillas bloqueadas no permiten interacción, evitando asignaciones incorrectas.",
+                            "**Cumplimiento legislativo:** Este control asegura el respeto a los tiempos de descanso establecidos por la normativa laboral.",
+                            "**Feedback inmediato:** El gestor identifica de forma visual y rápida cuándo un empleado no está disponible por descanso obligatorio."
+                        ]
+                    },
+                    /* resumen del periodo */
                     {
                         id: "resumen-periodo",
-                        title: "3. Resumen del periodo",
+                        title: "7. Resumen del periodo",
                         content: "En la parte final de la página encontraremos un resumen del periodo seleccionado, donde podremos consultar información detallada.",
                         image: `${baseUrl}/images/guide/resumen.webp`,
                         features: [
@@ -169,23 +192,27 @@ export const guideData: GuideCategory[] = [
                     }
                 ]
             },
+            /* Turnos Genericos */
             {
                 id: "turnos-genericos",
                 title: "Elaboración de cuadrantes mediante turnos genéricos",
                 content: "A través de la asignación de turnos genéricos, se dispone de otra forma de elaborar cuadrantes. En este caso se realizarán dos partes principales.",
                 subsections: [
+                    /* Seleccionar semana */
                     {
                         id: "seleccionar-semana",
                         title: "1. Seleccionar la semana genérica",
                         content: "El sistema admite hasta 6 semanas diferentes para configurar turnos genéricos.",
                         image: `${baseUrl}/images/guide/generic-header.webp`
                     },
+                    /* Diseñar planificacion */
                     {
                         id: "disenar-planificacion",
                         title: "2. Diseñar la planificación",
                         content: "Diseñar la planificación de los empleados genéricos para todos los días de esa semana.",
                         image: `${baseUrl}/images/guide/generic-roster.webp`
                     },
+                    /* Asignar turnos */
                     {
                         id: "asignar-turnos",
                         title: "3. Asignar los turnos genéricos",
@@ -198,28 +225,32 @@ export const guideData: GuideCategory[] = [
                             "Botón para poner en blanco todos los empleados asignados. Este botón está pensado para cuando solo se quiere añadir una persona al cuadrante."
                         ]
                     },
+                    /* Configurar semana */
                     {
                         id: "configurar-semana",
                         title: "Configurar los roles y empleados para la semana laboral",
                         content: "Una vez configurados los turnos, deberás elegir la semana genérica y la fecha concreta a la que se aplicarán. Tras asignar los turnos, es necesario cargar la semana en la Roster Page, donde podrás revisar y solucionar posibles conflictos derivados de vacaciones, ausencias o periodos de no disponibilidad. Como mencionamos en el punto 1, estos conflictos aparecerán marcados con un parpadeo amarillo.",
                         image: `${baseUrl}/images/guide/generic-select.webp`
                     },
+                    /* Asiganar empleados */
                     {
                         id: "configuracion-empleados",
                         title: "Configuración de empleados por turno",
                         content: "Al preparar la semana, se selecciona qué empleado realizará cada turno genérico. Para agilizar el proceso, puedes configurar empleados por defecto para cada turno. Aun así, todo está pensado para ser fácilmente editable: puedes modificar la asignación en cualquier momento e incluso asignar el mismo turno genérico a varios empleados si lo necesitas."
                     },
+                    /* Resolver conflictos */
                     {
                         id: "resolucion-conflictos",
                         title: "4. Selección de la semana y resolución de conflictos",
                         content: "Una vez configurados los turnos, deberás elegir la semana genérica y la fecha concreta a la que se aplicarán. Tras asignar los turnos, es necesario cargar la semana en la **Roster Page**, donde podrás revisar y solucionar posibles conflictos derivados de vacaciones, ausencias o periodos de no disponibilidad.",
                         image: `${baseUrl}/images/guide/conflicts.webp`,
                         features: [
-                            "Seleccionar la semana asignada. Se rellena la fecha de inicio que siempre debe ser lunes y la fecha de fin se auto completará.",
+                            "Seleccionar la semana asignada. Se rellena la fecha de inicio que siempre debe ser lunes y la fecha de fin se autocompletará.",
                             "Seleccionar el ciclo que representa la semana genérica a asignar.",
                             "Botón para enviar la configuración y generar el cuadrante."
                         ]
                     },
+                    /* Ejemplo resolucion de conflictos */
                     {
                         id: "conflictos-ejemplo",
                         title: "Ejemplo de resolución de conflictos",
@@ -229,11 +260,13 @@ export const guideData: GuideCategory[] = [
                 ],
                 video: "https://youtu.be/WRrTnhw_hBo"
             },
+            /* Insercion de turnos mediante formulario */
             {
                 id: "turnos-formulario",
                 title: "Inserción de turnos individuales mediante formulario",
                 content: "El formulario de registro de turnos permite asignar manualmente un turno concreto a un empleado en una fecha y franja horaria específicas. Esta funcionalidad está pensada para ajustes puntuales, correcciones o asignaciones fuera de la planificación genérica.",
                 subsections: [
+                    /* Informacion general */
                     {
                         id: "informacion-general",
                         title: "1. Información general del formulario",
@@ -247,6 +280,7 @@ export const guideData: GuideCategory[] = [
                             "El formulario se limpia automáticamente tras guardar un turno correctamente."
                         ]
                     },
+                    /* Validaciones del formulario  */
                     {
                         id: "validaciones-solapamientos",
                         title: "2. Validaciones y solapamiento de turnos",
@@ -263,11 +297,13 @@ export const guideData: GuideCategory[] = [
 
                 ],
             },
+            /* Gestion de usuarios */
             {
                 id: "gestion-usuarios",
                 title: "Gestión de usuarios",
                 content: "La sección de gestión de usuarios permite crear, modificar y eliminar usuarios del sistema, así como administrar toda la información asociada a cada empleado: rol, jornada laboral, equipo de trabajo, ausencias y disponibilidad.",
                 subsections: [
+                    /* Creacion y gestion de usuarios */
                     {
                         id: "gestion-datos-usuario",
                         title: "1. Creación y gestión de usuarios",
@@ -283,6 +319,7 @@ export const guideData: GuideCategory[] = [
                             "Validación visual y mensajes de confirmación o error."
                         ]
                     },
+                    /* Gestion de condiciones laborales */
                     {
                         id: "gestion-condiciones-laborales",
                         title: "2. Gestión de condiciones laborales",
@@ -296,6 +333,7 @@ export const guideData: GuideCategory[] = [
                             "Los cambios no sobrescriben datos anteriores, se registran como históricos."
                         ]
                     },
+                    /* Ausencias y disponibilidad */
                     {
                         id: "gestion-ausencias-disponibilidad",
                         title: "3. Ausencias y disponibilidad",
@@ -312,32 +350,145 @@ export const guideData: GuideCategory[] = [
                     }
                 ],
             },
-
+            /* Registros de jornada */
             {
                 id: "registros-jornada",
-                title: "Inserción de registros de jornada",
-                content: "Próximamente se documentará esta funcionalidad."
+                title: "Inserción de registros de jornada (fichajes)",
+                content: "El sistema de fichajes permite registrar las entradas y salidas de los empleados y está directamente vinculado a los turnos planificados. Los registros de jornada son utilizados para el control horario, la detección de ausencias y la validación del cumplimiento de los horarios asignados.",
+                subsections: [
+                    /* Acceso y registro de fichajes */
+                    {
+                        id: "acceso-fichaje",
+                        title: "1. Acceso y registro de fichajes",
+                        content: "Los empleados realizan el fichaje mediante su **DNI y contraseña** desde la vista de control horario. El sistema identifica al usuario y registra automáticamente el fichaje asociado.",
+                        image: `${baseUrl}/images/guide/timetrack-insert.webp`,
+                        features: [
+                            "Autenticación del empleado mediante DNI y contraseña.",
+                            "Registro automático de fichaje de entrada o salida según el contexto del turno.",
+                            "No es necesario seleccionar manualmente el tipo de fichaje.",
+                            "El fichaje queda vinculado al turno correspondiente.",
+                            "Confirmación visual inmediata tras realizar el fichaje."
+                        ]
+                    },
+                    /* Control horario y validaciones */
+                    {
+                        id: "control-horario-validaciones",
+                        title: "2. Control horario y validaciones automáticas",
+                        content: "El sistema supervisa de forma continua los fichajes de los empleados en relación con sus horarios asignados.",
+                        image: `${baseUrl}/images/guide/alert.webp`,
+                        features: [
+                            "Comprobación automática cada 30 minutos del estado de los fichajes.",
+                            "Validación de fichajes dentro de una franja de ±15 minutos respecto a la hora de entrada o salida del turno.",
+                            "Detección automática de faltas de fichaje.",
+                            "Las ausencias se tienen en cuenta para evitar falsos avisos.",
+                            "Envío automático de correos electrónicos informando de la incidencia.",
+                            "Los fichajes fuera de la franja permitida quedan registrados para su revisión."
+                        ]
+                    }
+                ],
             },
+            /* Revision y correccion de fichajes */
             {
-                id: "gestion-registros",
-                title: "Gestión de registros de jornada",
-                content: "Próximamente se documentará esta funcionalidad."
+                id: "revision-fichajes",
+                title: "Revisión y corrección de fichajes",
+                content: "La revisión de fichajes permite controlar y corregir los registros de jornada asociados a los turnos. El sistema identifica automáticamente posibles incidencias y facilita su resolución manteniendo la trazabilidad de todas las modificaciones.",
+                subsections: [
+                    /* Deteccion automatica de fichajes incompletos */
+                    {
+                        id: "deteccion-incidencias",
+                        title: "1. Detección automática de fichajes incompletos",
+                        content: "El sistema analiza los registros de jornada y detecta de forma automática si falta algún fichaje de entrada o salida asociado a un turno.",
+                        image: `${baseUrl}/images/guide/timetrack-revision.webp`,
+                        features: [
+                            "Asignación automática de cada fichaje como entrada o salida.",
+                            "Detección de turnos con fichaje incompleto.",
+                            "Identificación clara de faltas de fichaje.",
+                            "Visualización centralizada de las incidencias de jornada.",
+                        ]
+                    },
+                    /* Correccion e insercion manual */
+                    {
+                        id: "correccion-manual",
+                        title: "2. Corrección e inserción manual de fichajes",
+                        content: "Los gestores pueden corregir o completar los registros de jornada cuando se detectan errores o ausencias de fichaje.",
+                        image: `${baseUrl}/images/guide/timetrack-modify.webp`,
+                        features: [
+                            "Inserción manual de fichajes de entrada o salida.",
+                            "Corrección de horarios ya registrados.",
+                            "Asignación directa del fichaje al turno correspondiente.",
+                            "Actualización inmediata del estado del turno.",
+                            "Control total sobre la coherencia de los registros."
+                        ]
+                    },
+                    /* Notificaciones y trazabilidad */
+                    {
+                        id: "notificaciones-trazabilidad",
+                        title: "3. Notificaciones, trazabilidad y exportación a PDF",
+                        content: "Todas las modificaciones manuales quedan registradas y pueden ser consultadas o exportadas para su revisión.",
+                        image: `${baseUrl}/images/guide/timetrack-report.webp`,
+                        features: [
+                            "Notificación por correo electrónico al empleado afectado.",
+                            "Notificación por correo electrónico al gestor.",
+                            "Registro de cada inserción o modificación manual.",
+                            "Descarga de los registros de jornada en formato PDF.",
+                            "Facilita auditorías y revisiones posteriores."
+                        ]
+                    }
+                ],
             },
+            /* Vista de empleado */
             {
-                id: "visualizacion-ausencias",
-                title: "Visualización de ausencias",
-                content: "Próximamente se documentará esta funcionalidad."
+                id: "vista-empleado",
+                title: "Vista de empleado",
+                content: "La aplicación gestiona distintos roles de usuario. Cuando un empleado accede a la aplicación, dispone de una vista personalizada en la que puede consultar toda la información relacionada con su jornada laboral y su planificación.",
+                subsections: [
+                    {
+                        id: "acceso-por-rol",
+                        title: "1. Acceso y control por roles",
+                        content: "El sistema adapta automáticamente la interfaz y las funcionalidades según el rol del usuario autenticado.",
+                        image: `${baseUrl}/images/guide/employee-dashboard.webp`,
+                        features: [
+                            "Gestión de accesos basada en roles.",
+                            "El empleado solo puede visualizar información propia.",
+                            "Restricción de acceso a vistas de gestión y administración.",
+                            "Interfaz simplificada y orientada a la consulta.",
+                            "Seguridad y privacidad de los datos garantizadas."
+                        ]
+                    },
+                    {
+                        id: "informacion-laboral",
+                        title: "2. Consulta de información laboral",
+                        content: "Desde la vista de empleado se puede acceder de forma centralizada a toda la información relacionada con su actividad.",
+                        features: [
+                            "Visualización de horarios y turnos asignados.",
+                            "Consulta del histórico de fichajes de entrada y salida.",
+                            "Acceso a vacaciones planificadas y solicitadas.",
+                            "Visualización de ausencias y justificantes asociados.",
+                            "Consulta organizada por fechas y periodos."
+                        ]
+                    },
+                    {
+                        id: "transparencia-control",
+                        title: "3. Transparencia y control personal",
+                        content: "La vista de empleado está pensada para ofrecer transparencia y facilitar el control personal de la jornada.",
+                        features: [
+                            "Acceso claro al cómputo de horas trabajadas.",
+                            "Detección visual de posibles incidencias de fichaje.",
+                            "Seguimiento del cumplimiento de horarios.",
+                            "Reducción de errores y malentendidos.",
+                            "Mejora de la comunicación entre empleado y gestor."
+                        ]
+                    }
+                ]
             },
+
+            /* Reportes mensuales */
             {
                 id: "reportes-mensuales",
                 title: "Acceso a reportes mensuales",
                 content: "Próximamente se documentará esta funcionalidad."
             },
-            {
-                id: "vista-empleado",
-                title: "Vista de empleado",
-                content: "Próximamente se documentará esta funcionalidad."
-            }
+            /* Vista de empleado */
         ]
     }
 ];
