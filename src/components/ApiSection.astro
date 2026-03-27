@@ -2,10 +2,17 @@
 // API Section - Showcase backend development
 ---
 
-<section id="api" class="py-24 px-6 relative">
-    <!-- Background decoration - diferente gradiente -->
+<section id="api" class="py-24 px-6 relative overflow-hidden">
+    <!-- Background decoration -->
     <div
         class="absolute inset-0 bg-gradient-to-br from-slate-900/60 to-slate-800/40"
+    >
+    </div>
+
+    <!-- Animated grid background -->
+    <div
+        class="absolute inset-0 opacity-5"
+        style="background-image: linear-gradient(rgba(52,211,153,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(52,211,153,0.4) 1px, transparent 1px); background-size: 40px 40px;"
     >
     </div>
 
@@ -18,40 +25,43 @@
                 Backend & API
             </h2>
             <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                Desarrollo backend con Spring Boot para la gestión completa de
-                WorkSchedFlow
+                API REST production-ready con Spring Boot — desplegada en
+                Render, base de datos en Supabase y arquitectura multitenant
             </p>
         </div>
 
-        <!-- API Showcase - Single large card -->
+        <!-- Main card -->
         <div class="mb-12">
             <div
                 class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 hover:border-emerald-500/50 transition-all duration-300"
             >
                 <div
-                    class="aspect-[2/1] bg-gradient-to-br from-emerald-600/20 to-blue-600/20 flex items-center justify-center relative overflow-hidden group"
+                    class="aspect-[2/1] bg-gradient-to-br from-emerald-600/20 to-blue-600/20 flex items-center justify-center relative overflow-hidden"
                 >
-                    <!-- Code/API visualization background -->
                     <div class="absolute inset-0 bg-slate-900/60"></div>
+
+                    <!-- Code visualization background -->
                     <div
                         class="absolute inset-0 flex items-center justify-center"
                     >
                         <pre
-                            class="text-emerald-400/30 text-xs font-mono transform -rotate-12 scale-150 select-none">{`{
-  "endpoints": "15+",
-  "auth": "JWT", 
-  "database": "MySQL",
-  "framework": "Spring Boot"
+                            class="text-emerald-400/20 text-xs font-mono transform -rotate-6 scale-125 select-none leading-relaxed">{`@PreAuthorize("hasRole('ADMIN')")
+@GetMapping("/api/v1/tenants/{id}/shifts")
+public ResponseEntity<List<ShiftDTO>> getShifts(
+    @PathVariable UUID tenantId,
+    @AuthenticationPrincipal UserDetails user) {
+    // Multitenant isolation + JWT validation
+    return ResponseEntity.ok(shiftService.findAll());
 }`}</pre>
                     </div>
 
-                    <!-- Subtle gradient overlay -->
+                    <!-- Gradient overlay -->
                     <div
-                        class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"
+                        class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"
                     >
                     </div>
 
-                    <!-- Elegant text overlay at bottom -->
+                    <!-- Bottom text -->
                     <div class="absolute bottom-0 left-0 right-0 p-6 text-left">
                         <h4
                             class="text-white font-bold text-lg mb-1 drop-shadow-lg"
@@ -59,11 +69,11 @@
                             JobHourApp POC API
                         </h4>
                         <p class="text-emerald-200 text-sm opacity-90">
-                            Sistema backend completo
+                            Backend production-ready · Render + Supabase
                         </p>
                     </div>
 
-                    <!-- Repository link badge -->
+                    <!-- Repo badge -->
                     <div
                         class="absolute top-4 right-4 px-3 py-1 rounded-md text-xs bg-emerald-600/80 text-white backdrop-blur-sm border border-emerald-400/30 font-medium"
                     >
@@ -86,15 +96,28 @@
                             REPO
                         </a>
                     </div>
+
+                    <!-- Live badge -->
+                    <div
+                        class="absolute top-4 left-4 px-3 py-1 rounded-md text-xs bg-slate-800/80 text-emerald-400 backdrop-blur-sm border border-emerald-500/30 font-medium flex items-center gap-1.5"
+                    >
+                        <span
+                            class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse inline-block"
+                        ></span>
+                        Live en Render
+                    </div>
                 </div>
+
                 <div class="p-6">
                     <h3 class="text-xl font-semibold mb-2 text-white">
                         API REST con Spring Boot
                     </h3>
                     <p class="text-gray-400 mb-4">
-                        Backend completo para WorkSchedFlow con autenticación
-                        JWT, gestión de usuarios, turnos de trabajo y toda la
-                        lógica de negocio necesaria para el sistema.
+                        Backend completo para WorkSchedFlow con arquitectura
+                        multitenant, Spring Security, autenticación JWT, gestión
+                        de usuarios, turnos y toda la lógica de negocio.
+                        Desplegado en Render con base de datos PostgreSQL en
+                        Supabase.
                     </p>
                     <div class="flex gap-2 flex-wrap">
                         <span
@@ -107,7 +130,7 @@
                         >
                         <span
                             class="px-3 py-1 rounded-full text-xs bg-blue-500/20 text-blue-300 border border-blue-500/30"
-                            >MySQL</span
+                            >Supabase</span
                         >
                         <span
                             class="px-3 py-1 rounded-full text-xs bg-purple-500/20 text-purple-300 border border-purple-500/30"
@@ -117,14 +140,90 @@
                             class="px-3 py-1 rounded-full text-xs bg-red-500/20 text-red-300 border border-red-500/30"
                             >REST API</span
                         >
+                        <span
+                            class="px-3 py-1 rounded-full text-xs bg-yellow-500/20 text-yellow-300 border border-yellow-500/30"
+                            >Spring Security</span
+                        >
+                        <span
+                            class="px-3 py-1 rounded-full text-xs bg-teal-500/20 text-teal-300 border border-teal-500/30"
+                            >Multitenant</span
+                        >
+                        <span
+                            class="px-3 py-1 rounded-full text-xs bg-sky-500/20 text-sky-300 border border-sky-500/30"
+                            >Render</span
+                        >
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Features Grid -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <!-- Feature 1 -->
+        <!-- Features Grid - 4 columns -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Spring Security -->
+            <div
+                class="text-center p-6 rounded-xl bg-slate-800/30 border border-slate-700/50 hover:border-yellow-500/30 transition-all duration-300"
+            >
+                <div
+                    class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center mx-auto mb-4"
+                >
+                    <svg
+                        width="24"
+                        height="24"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        class="text-yellow-400"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                        ></path>
+                    </svg>
+                </div>
+                <h4 class="text-lg font-semibold text-white mb-2">
+                    Spring Security
+                </h4>
+                <p class="text-gray-400 text-sm">
+                    Autenticación JWT con roles y permisos por recurso. Filtros
+                    de seguridad personalizados
+                </p>
+            </div>
+
+            <!-- Multitenant -->
+            <div
+                class="text-center p-6 rounded-xl bg-slate-800/30 border border-slate-700/50 hover:border-teal-500/30 transition-all duration-300"
+            >
+                <div
+                    class="w-12 h-12 bg-teal-500/20 rounded-lg flex items-center justify-center mx-auto mb-4"
+                >
+                    <svg
+                        width="24"
+                        height="24"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        class="text-teal-400"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                        ></path>
+                    </svg>
+                </div>
+                <h4 class="text-lg font-semibold text-white mb-2">
+                    Arquitectura Multitenant
+                </h4>
+                <p class="text-gray-400 text-sm">
+                    Aislamiento de datos por empresa. Cada tenant gestiona sus
+                    propios empleados y turnos
+                </p>
+            </div>
+
+            <!-- Supabase -->
             <div
                 class="text-center p-6 rounded-xl bg-slate-800/30 border border-slate-700/50 hover:border-emerald-500/30 transition-all duration-300"
             >
@@ -143,19 +242,20 @@
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             stroke-width="2"
-                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                            d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"
                         ></path>
                     </svg>
                 </div>
                 <h4 class="text-lg font-semibold text-white mb-2">
-                    Autenticación JWT
+                    Supabase PostgreSQL
                 </h4>
                 <p class="text-gray-400 text-sm">
-                    Sistema seguro de login con tokens y roles de usuario
+                    Base de datos cloud con JPA/Hibernate y esquema optimizado
+                    para consultas multitenant
                 </p>
             </div>
 
-            <!-- Feature 2 -->
+            <!-- N+1 -->
             <div
                 class="text-center p-6 rounded-xl bg-slate-800/30 border border-slate-700/50 hover:border-blue-500/30 transition-all duration-300"
             >
@@ -174,19 +274,54 @@
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             stroke-width="2"
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <h4 class="text-lg font-semibold text-white mb-2">
+                    N+1 Resuelto
+                </h4>
+                <p class="text-gray-400 text-sm">
+                    Fetch JOIN y EntityGraph para evitar queries redundantes.
+                    Rendimiento optimizado en todas las relaciones
+                </p>
+            </div>
+        </div>
+
+        <!-- Second row - 3 columns -->
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <!-- Render deploy -->
+            <div
+                class="text-center p-6 rounded-xl bg-slate-800/30 border border-slate-700/50 hover:border-sky-500/30 transition-all duration-300"
+            >
+                <div
+                    class="w-12 h-12 bg-sky-500/20 rounded-lg flex items-center justify-center mx-auto mb-4"
+                >
+                    <svg
+                        width="24"
+                        height="24"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        class="text-sky-400"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
                         ></path>
                     </svg>
                 </div>
                 <h4 class="text-lg font-semibold text-white mb-2">
-                    Gestión de Turnos
+                    Despliegue en Render
                 </h4>
                 <p class="text-gray-400 text-sm">
-                    CRUD completo para horarios y asignación de empleados
+                    CI/CD automático desde GitHub. Variables de entorno y
+                    configuración por perfiles (dev/prod)
                 </p>
             </div>
 
-            <!-- Feature 3 -->
+            <!-- Gestión turnos -->
             <div
                 class="text-center p-6 rounded-xl bg-slate-800/30 border border-slate-700/50 hover:border-purple-500/30 transition-all duration-300"
             >
@@ -205,19 +340,20 @@
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             stroke-width="2"
-                            d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                         ></path>
                     </svg>
                 </div>
                 <h4 class="text-lg font-semibold text-white mb-2">
-                    Base de Datos
+                    Gestión de Turnos
                 </h4>
                 <p class="text-gray-400 text-sm">
-                    Esquema optimizado con JPA/Hibernate
+                    CRUD completo para horarios, asignación de empleados y
+                    control de jornadas laborales
                 </p>
             </div>
 
-            <!-- Feature 4 -->
+            <!-- REST endpoints -->
             <div
                 class="text-center p-6 rounded-xl bg-slate-800/30 border border-slate-700/50 hover:border-red-500/30 transition-all duration-300"
             >
@@ -236,14 +372,16 @@
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             stroke-width="2"
-                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        ></path>
                     </svg>
                 </div>
                 <h4 class="text-lg font-semibold text-white mb-2">
                     Endpoints REST
                 </h4>
                 <p class="text-gray-400 text-sm">
-                    API documentada con validación y manejo de errores
+                    +15 endpoints documentados con validación de entrada, manejo
+                    global de errores y DTOs
                 </p>
             </div>
         </div>
