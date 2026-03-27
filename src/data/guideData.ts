@@ -547,7 +547,7 @@ export const guideData: GuideCategory[] = [
                 subsections: [
                     {
                         id: "chat-ia",
-                        title: "Chat de planificación con IA",
+                        title: "Chat de planificación con IA (Experimental)",
                         content: "La inserción de turnos mediante IA se realiza desde un chat que interactúa directamente con la página de planificación.",
                         image: `${baseUrl}/images/guide/chat-ia.webp`,
                         features: [

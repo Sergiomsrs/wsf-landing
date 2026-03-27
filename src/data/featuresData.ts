@@ -65,16 +65,6 @@ export const featuresData: Feature[] = [
         icon: "M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V9a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2z"
     },
     {
-        id: 6,
-        title: "Resumen de turnos por empleado",
-        description: "Muestra un listado completo y detallado de todos los turnos de cada empleado, identificando automáticamente los partidos y ofreciendo un resumen completo del período seleccionado, incluyendo base de horas, horas trabajadas y pendientes por gestionar, facilitando la toma de decisiones y la planificación del equipo.",
-        imageSrc: `${baseUrl}resumen-semanal.webp`,
-        imageAlt: "Resumen de turnos por empleado",
-        theme: "yellow",
-        badge: "Reportes Detallados",
-        icon: "M9 5H7a2 2 0 00-2 2v6a2 2 0 002 2h2m0 0h2a2 2 0 002-2V7a2 2 0 00-2-2H9m0 0V3m0 2h2m-2 8v2m0 0v2m0-2h2m-2 0H7"
-    },
-    {
         id: 7,
         title: "Registro de Jornada",
         description: "Permite a los empleados registrar entradas y salidas de forma rápida y precisa mediante una interfaz intuitiva, manteniendo un control horario fiable para todo el equipo y asegurando que cada jornada quede correctamente documentada.",
