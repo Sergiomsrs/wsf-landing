@@ -149,10 +149,24 @@ export const guideData: GuideCategory[] = [
                             "**Compatible con otros filtros:** La vista de empleados activos funciona de forma combinada con los filtros de equipo y búsqueda por nombre disponibles en la cabecera."
                         ]
                     },
+                    /* Control de franja horaria */
+                    {
+                        id: "control-franja-horaria",
+                        title: "5. Control de franja horaria",
+                        content: "Esta funcionalidad permite al gestor personalizar la ventana temporal visible en la pizarra de planificación, facilitando el enfoque en periodos específicos del día según las necesidades operativas del equipo.",
+                        image: `${baseUrl}/images/guide/control-franja-horaria.webp`,
+                        features: [
+                            "**Visualización por defecto optimizada:** Al cargar la pizarra, el sistema muestra un rango de 07:30 a 22:30, lo que permite ver la mayor parte de la jornada estándar sin desplazamientos laterales excesivos.",
+                            "**Selector de rango flexible:** A través de un menú desplegable, el usuario puede alternar entre ver el día completo (00:00 - 24:00) o franjas específicas de mañana o tarde.",
+                            "**Indicador de horas fuera de rango:** Si existen turnos o fracciones trabajadas fuera de la vista seleccionada, aparece una barra vertical de aviso en el lado correspondiente a las horas ocultas para que no se pase por alto ninguna información.",
+                            "**Mejora de la claridad visual:** Al trabajar con cuadrantes más limpios y enfocados, se facilita la gestión de turnos complejos en equipos con horarios muy extendidos.",
+                            "**Integridad de la planificación:** Aunque se filtre la vista temporal, el sistema mantiene todos los cálculos de horas totales y validaciones de descanso legal de forma global."
+                        ]
+                    },
                     /* Vista distribucion  */
                     {
                         id: "vista-distribucion",
-                        title: "5. Control de empleados por franja horaria",
+                        title: "6. Control de empleados por franja horaria",
                         content: "  En la última línea del día podemos ver los empleados activos por franja horaria. Se dispone de dos modos de visualización a los que se accede clicando sobre 'Personas'. En el primer modo de visualización se verán los empleados activos totales por franja horaria, mientras que en el segundo modo se verán solo los del equipo seleccionado.",
                         image: `${baseUrl}/images/guide/distribucion.webp`,
                         features: [
@@ -165,7 +179,7 @@ export const guideData: GuideCategory[] = [
                     /* Control 12 horas  */
                     {
                         id: "control-12h",
-                        title: "6. Control de descanso mínimo de 12 horas",
+                        title: "7. Control de descanso mínimo de 12 horas",
                         content: "El sistema garantiza el cumplimiento del descanso mínimo legal entre turnos. Al asignar un turno, se comprueba automáticamente que hayan transcurrido al menos 12 horas desde el último turno realizado por el empleado.",
                         image: `${baseUrl}/images/guide/control-12h.webp`,
                         features: [
@@ -179,7 +193,7 @@ export const guideData: GuideCategory[] = [
                     /* resumen del periodo */
                     {
                         id: "resumen-periodo",
-                        title: "7. Resumen del periodo",
+                        title: "8. Resumen del periodo",
                         content: "En la parte final de la página encontraremos un resumen del periodo seleccionado, donde podremos consultar información detallada.",
                         image: `${baseUrl}/images/guide/resumen.webp`,
                         features: [
@@ -192,7 +206,7 @@ export const guideData: GuideCategory[] = [
                     },
                     {
                         id: "vista-impresion",
-                        title: "8. Vista de impresión y exportación a PDF",
+                        title: "9. Vista de impresión y exportación a PDF",
                         content: "Clicando en el botón de imprimir tendrás acceso de forma rápida a la vista de impresión, permitiendo generar un resumen claro y profesional de los turnos y jornadas.",
                         image: `${baseUrl}/images/guide/print.webp`,
                         features: [
