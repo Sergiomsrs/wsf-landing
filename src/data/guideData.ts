@@ -411,7 +411,8 @@ export const guideData: GuideCategory[] = [
                             "Selección directa de empleados desde un desplegable.",
                             "Edición de datos personales y laborales del usuario.",
                             "Eliminación de usuarios existentes.",
-                            "Validación visual y mensajes de confirmación o error."
+                            "Validación visual y mensajes de confirmación o error.",
+                            "Establecimiento de preferencias a tener en cuenta en la asignación inteligente de turnos.",
                         ]
                     },
                     /* Gestion de condiciones laborales */
@@ -441,6 +442,20 @@ export const guideData: GuideCategory[] = [
                             "Gestión de disponibilidad horaria por día y franja horaria.",
                             "Registro de indisponibilidades parciales (hora inicio y fin).",
                             "Visualización clara de ausencias y disponibilidades activas."
+                        ]
+                    },
+                    {
+                        id: "gestion-preferencias",
+                        title: "4. Preferencias de planificación",
+                        content: "En este apartado se configuran las preferencias del empleado que el sistema tendrá en cuenta a la hora de generar la planificación y asignación de turnos.",
+                        image: `${baseUrl}/images/guide/preferencias.webp`,
+                        features: [
+                            "Asignación del perfil de acceso del empleado (Manager, Keyholder o Empleado) con sus restricciones horarias asociadas.",
+                            "Configuración de disponibilidad para realizar horas extra y límite máximo semanal de horas aceptadas.",
+                            "Definición de preferencias de turno, incluyendo franja horaria preferida y restricciones específicas (por ejemplo, solo turno de tarde entre semana).",
+                            "Gestión de disponibilidad en fines de semana mediante modalidad rotativa o fija.",
+                            "Asignación de habilidades del empleado en tienda (como cobros en caja o departamento asignado) para mejorar la precisión en la planificación.",
+                            "Guardado y actualización de preferencias para su aplicación automática en el sistema de planificación."
                         ]
                     }
                 ],
