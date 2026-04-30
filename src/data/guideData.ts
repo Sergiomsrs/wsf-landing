@@ -35,7 +35,12 @@ export const guideData: GuideCategory[] = [
                 id: "que-es",
                 title: "¿Qué es WorkSchedFlow?",
                 content: "WorkSchedFlow es una plataforma de planificación operativa de personal diseñada para empresas con turnos, campañas y alta variabilidad de demanda. No es una herramienta de consulta ni de control de horarios, sino un sistema de diseño estratégico de cuadrantes. Permite construir la planificación óptima de equipos en función de la demanda del negocio, los picos de actividad y los objetivos de cobertura. Su enfoque está en ayudar a tomar decisiones, no solo en visualizar información. A través de su entorno de planificación, facilita el equilibrio entre necesidad operativa, disponibilidad de empleados y presupuesto. Es una herramienta pensada para sentarse a diseñar, optimizar y ajustar la estructura de trabajo, no solo para revisarla.",
+                subsections: [
+
+                ],
+                video: "https://youtu.be/D1-NKLsTDZ4",
             },
+
             {
                 id: "puntos-clave",
                 title: "Puntos clave de la aplicación",

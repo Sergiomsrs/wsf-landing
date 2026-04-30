@@ -13,6 +13,37 @@ function parseMarkdown(text: string) {
         .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
         .replace(/\*(.*?)\*/g, "<em>$1</em>");
 }
+
+function getYouTubeEmbedUrl(url: string) {
+    try {
+        const parsedUrl = new URL(url);
+        const hostname = parsedUrl.hostname.replace("www.", "");
+        let videoId = "";
+
+        if (hostname === "youtu.be") {
+            videoId = parsedUrl.pathname.slice(1);
+        } else if (hostname === "youtube.com") {
+            if (parsedUrl.pathname === "/watch") {
+                videoId = parsedUrl.searchParams.get("v") || "";
+            } else if (parsedUrl.pathname.startsWith("/embed/")) {
+                videoId = parsedUrl.pathname.split("/embed/")[1] || "";
+            } else if (parsedUrl.pathname.startsWith("/shorts/")) {
+                videoId = parsedUrl.pathname.split("/shorts/")[1] || "";
+            }
+        }
+
+        if (!videoId) {
+            return null;
+        }
+
+        const cleanVideoId = videoId.split(/[?&/]/)[0];
+        return cleanVideoId
+            ? `https://www.youtube.com/embed/${cleanVideoId}`
+            : null;
+    } catch {
+        return null;
+    }
+}
 ---
 
 <section id={section.id} class="guide-section">
@@ -60,11 +91,24 @@ function parseMarkdown(text: string) {
 
                         {subsection.video && (
                             <div class="video-section">
-                                {subsection.video.startsWith("http") ? (
+                                {subsection.video.startsWith("http") &&
+                                getYouTubeEmbedUrl(subsection.video) ? (
                                     <>
-                                        <h4 class="video-title">
-                                            Ver demostración en video
-                                        </h4>
+                                        <iframe
+                                            src={
+                                                getYouTubeEmbedUrl(
+                                                    subsection.video,
+                                                )!
+                                            }
+                                            title={`Video de ${subsection.title}`}
+                                            loading="lazy"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            referrerpolicy="strict-origin-when-cross-origin"
+                                            allowfullscreen
+                                        />
+                                    </>
+                                ) : subsection.video.startsWith("http") ? (
+                                    <>
                                         <a
                                             href={subsection.video}
                                             target="_blank"
@@ -129,9 +173,20 @@ function parseMarkdown(text: string) {
     {
         section.video && (
             <div class="video-section">
-                {section.video.startsWith("http") ? (
+                {section.video.startsWith("http") &&
+                getYouTubeEmbedUrl(section.video) ? (
                     <>
-                        <h4 class="video-title">Ver demostración en video</h4>
+                        <iframe
+                            src={getYouTubeEmbedUrl(section.video)!}
+                            title={`Video de ${section.title}`}
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                        />
+                    </>
+                ) : section.video.startsWith("http") ? (
+                    <>
                         <a
                             href={section.video}
                             target="_blank"
@@ -363,22 +418,34 @@ function parseMarkdown(text: string) {
     }
 
     .video-section {
+        width: min(100%, 1080px);
         margin: 2rem 0;
-        padding: 1.5rem;
+        padding: 0.5rem;
         background: rgba(15, 23, 42, 0.5);
         border-radius: 0.75rem;
         border: 1px solid rgba(148, 163, 184, 0.2);
+        box-sizing: border-box;
     }
 
     .video-section video {
         width: 100%;
-        max-width: 1200px;
         border-radius: 0.5rem;
         box-shadow:
             0 4px 6px -1px rgba(0, 0, 0, 0.3),
             0 2px 4px -1px rgba(0, 0, 0, 0.2);
         display: block;
         object-fit: cover;
+        aspect-ratio: 16 / 9;
+    }
+
+    .video-section iframe {
+        width: 100%;
+        border: none;
+        border-radius: 0.5rem;
+        box-shadow:
+            0 4px 6px -1px rgba(0, 0, 0, 0.3),
+            0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        display: block;
         aspect-ratio: 16 / 9;
     }
 
