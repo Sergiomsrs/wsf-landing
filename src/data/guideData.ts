@@ -34,7 +34,7 @@ export const guideData: GuideCategory[] = [
             {
                 id: "que-es",
                 title: "¿Qué es WorkSchedFlow?",
-                content: "WorkSchedFlow es una prueba de concepto diseñada para facilitar la gestión de turnos de trabajo. Su objetivo principal es cubrir las necesidades de los gestores de equipos, brindando una herramienta que simplifica el diseño de horarios mientras se asegura de cumplir con las normativas laborales y las expectativas de los empleados.",
+                content: "WorkSchedFlow es una plataforma de planificación operativa de personal diseñada para empresas con turnos, campañas y alta variabilidad de demanda. No es una herramienta de consulta ni de control de horarios, sino un sistema de diseño estratégico de cuadrantes. Permite construir la planificación óptima de equipos en función de la demanda del negocio, los picos de actividad y los objetivos de cobertura. Su enfoque está en ayudar a tomar decisiones, no solo en visualizar información. A través de su entorno de planificación, facilita el equilibrio entre necesidad operativa, disponibilidad de empleados y presupuesto. Es una herramienta pensada para sentarse a diseñar, optimizar y ajustar la estructura de trabajo, no solo para revisarla.",
             },
             {
                 id: "puntos-clave",
@@ -204,6 +204,7 @@ export const guideData: GuideCategory[] = [
                             "**Datos totales:** En la última fila de la tabla se presenta el resumen global del periodo, con el total de horas de jornada, horas trabajadas y la desviación acumulada."
                         ]
                     },
+                    /* Vista de impresion */
                     {
                         id: "vista-impresion",
                         title: "9. Vista de impresión y exportación a PDF",
@@ -221,69 +222,64 @@ export const guideData: GuideCategory[] = [
             {
                 id: "turnos-genericos",
                 title: "Elaboración de cuadrantes mediante turnos genéricos",
-                content: "A través de la asignación de turnos genéricos, se dispone de otra forma de elaborar cuadrantes. En este caso se realizarán dos partes principales.",
+                content: "Los turnos genéricos permiten definir patrones de planificación reutilizables que pueden aplicarse posteriormente a semanas concretas. Este enfoque facilita la creación rápida de cuadrantes manteniendo coherencia y consistencia en la asignación de turnos.",
                 subsections: [
-                    /* Seleccionar semana */
                     {
                         id: "seleccionar-semana",
                         title: "1. Seleccionar la semana genérica",
-                        content: "El sistema admite hasta 6 semanas diferentes para configurar turnos genéricos.",
+                        content: "El sistema permite configurar hasta 6 semanas genéricas distintas. Cada una representa un patrón de planificación reutilizable que podrás aplicar en cualquier momento.",
                         image: `${baseUrl}/images/guide/generic-header.webp`
                     },
-                    /* Diseñar planificacion */
                     {
                         id: "disenar-planificacion",
                         title: "2. Diseñar la planificación",
-                        content: "Diseñar la planificación de los empleados genéricos para todos los días de esa semana.",
-                        image: `${baseUrl}/images/guide/generic-roster.webp`
+                        content: "En esta fase se define la estructura de turnos para cada día de la semana. Estás configurando el modelo base que servirá como referencia para generar cuadrantes reales.",
+                        image: `${baseUrl}/images/guide/generic-roster.webp`,
+                        features: [
+                            "Definición de turnos por día de la semana.",
+                            "Configuración independiente de cada semana genérica (hasta 6 disponibles).",
+                            "Base reutilizable para múltiples periodos."
+                        ]
                     },
-                    /* Asignar turnos */
                     {
                         id: "asignar-turnos",
-                        title: "3. Asignar los turnos genéricos",
-                        content: "**Asignación flexible de turnos:** No es necesario asignar todos los turnos de la semana de una sola vez. Puedes trabajar empleado por empleado. Si una semana ya está creada, también es posible asignar un turno individualmente a un único empleado sin necesidad de rehacer toda la planificación.",
+                        title: "3. Asignación de empleados a turnos genéricos",
+                        content: "La asignación de empleados es completamente flexible. Puedes trabajar de forma global o individual, adaptando la planificación según tus necesidades sin necesidad de rehacer todo el cuadrante.",
                         image: `${baseUrl}/images/guide/generic-config.webp`,
                         features: [
-                            "Desplegable para asignar el empleado que realizará el turno.",
-                            "Botón para asignar el empleado por defecto a ese turno.",
-                            "Botón para activar o desactivar el turno genérico. El sistema cuenta con 50 turnos disponibles y solo los turnos activos aparecerán en la ventana de diseño.",
-                            "Botón para poner en blanco todos los empleados asignados. Este botón está pensado para cuando solo se quiere añadir una persona al cuadrante."
+                            "Asignación manual de empleados mediante desplegable.",
+                            "Opción de asignar un empleado por defecto a un turno.",
+                            "Activación o desactivación de turnos genéricos (hasta 50 disponibles).",
+                            "Los turnos inactivos no aparecen en la fase de diseño.",
+                            "Posibilidad de limpiar asignaciones de forma masiva.",
+                            "Edición parcial: puedes modificar un único turno sin afectar al resto."
                         ]
                     },
-                    /* Configurar semana */
                     {
-                        id: "configurar-semana",
-                        title: "Configurar los roles y empleados para la semana laboral",
-                        content: "Una vez configurados los turnos, deberás elegir la semana genérica y la fecha concreta a la que se aplicarán. Tras asignar los turnos, es necesario cargar la semana en la Roster Page, donde podrás revisar y solucionar posibles conflictos derivados de vacaciones, ausencias o periodos de no disponibilidad. Como mencionamos en el punto 1, estos conflictos aparecerán marcados con un parpadeo amarillo.",
-                        image: `${baseUrl}/images/guide/generic-select.webp`
-                    },
-                    /* Asiganar empleados */
-                    {
-                        id: "configuracion-empleados",
-                        title: "Configuración de empleados por turno",
-                        content: "Al preparar la semana, se selecciona qué empleado realizará cada turno genérico. Para agilizar el proceso, puedes configurar empleados por defecto para cada turno. Aun así, todo está pensado para ser fácilmente editable: puedes modificar la asignación en cualquier momento e incluso asignar el mismo turno genérico a varios empleados si lo necesitas."
-                    },
-                    /* Resolver conflictos */
-                    {
-                        id: "resolucion-conflictos",
-                        title: "4. Selección de la semana y resolución de conflictos",
-                        content: "Una vez configurados los turnos, deberás elegir la semana genérica y la fecha concreta a la que se aplicarán. Tras asignar los turnos, es necesario cargar la semana en la **Roster Page**, donde podrás revisar y solucionar posibles conflictos derivados de vacaciones, ausencias o periodos de no disponibilidad.",
-                        image: `${baseUrl}/images/guide/conflicts.webp`,
+                        id: "generar-semana",
+                        title: "4. Generación y análisis de la semana",
+                        content: "Una vez definida la configuración, el sistema genera la semana seleccionada y ejecuta un análisis automático para validar la coherencia del cuadrante antes de su aplicación.",
+                        image: `${baseUrl}/images/guide/generic-analize.webp`,
                         features: [
-                            "Seleccionar la semana asignada. Se rellena la fecha de inicio que siempre debe ser lunes y la fecha de fin se autocompletará.",
-                            "Seleccionar el ciclo que representa la semana genérica a asignar.",
-                            "Botón para enviar la configuración y generar el cuadrante."
+                            "Detección de solapamientos entre turnos.",
+                            "Validación frente a ausencias y periodos de no disponibilidad.",
+                            "Identificación de conflictos antes de su confirmación.",
+                            "Separación entre turnos válidos y turnos conflictivos."
                         ]
                     },
-                    /* Ejemplo resolucion de conflictos */
                     {
-                        id: "conflictos-ejemplo",
-                        title: "Ejemplo de resolución de conflictos",
-                        content: "Como vimos anteriormente, un empleado puede tener días de vacaciones asignados y franjas horarias en las que no puede trabajar por motivos personales. En el caso de asignarle un turno mediante este proceso, se marcará en amarillo en la planificación para que se pueda solucionar.",
-                        image: `${baseUrl}/images/guide/generic-roster.webp`,
+                        id: "confirmar-semana",
+                        title: "5. Confirmación de turnos",
+                        content: "Tras el análisis, podrás revisar el resultado antes de confirmar los cambios. La aplicación del cuadrante se realiza de forma controlada para garantizar la integridad de los datos.",
+                        image: `${baseUrl}/images/guide/generic-analize-confirm.webp`,
+                        features: [
+                            "Revisión previa de la planificación generada.",
+                            "Confirmación explícita antes de guardar cambios.",
+                            "Persistencia segura sin estados intermedios inconsistentes.",
+                            "Integración automática en el cuadrante final."
+                        ]
                     }
-                ],
-                video: "https://youtu.be/WRrTnhw_hBo"
+                ]
             },
             /* Insercion de turnos mediante formulario */
             {
@@ -321,6 +317,73 @@ export const guideData: GuideCategory[] = [
                     }
 
                 ],
+            },
+            /* Resolucion de conflictos */
+            {
+                id: "Resolucion-conflictos",
+                title: "Resolución de conflictos entre disponibilidad y cuadrante asignado",
+                content: "Cuando se define un periodo de no disponibilidad (vacaciones, ausencias, etc.) sobre un cuadrante ya generado o recuperado, el sistema activa automáticamente el gestor de conflictos. Este detecta cualquier asignación que incumpla la nueva disponibilidad y la marca visualmente para su revisión.",
+                subsections: [
+                    {
+                        id: "resolucion-conflictos",
+                        title: "1. Selección de la semana y resolución de conflictos",
+                        content: "Tras recuperar un periodo del cuadrante, podrás revisar y resolver los conflictos generados por cambios en la disponibilidad de los empleados. El sistema resaltará automáticamente las asignaciones afectadas para facilitar su identificación y corrección.",
+                        image: `${baseUrl}/images/guide/conflicts.webp`,
+                        features: [
+                            "Las horas en conflicto aparecerán resaltadas y parpadeando en color amarillo.",
+                            "Al hacer clic sobre una asignación en conflicto, podrás marcarla como resuelta o ajustarla manualmente.",
+                            "Las horas con conflictos no se tienen en cuenta en el cálculo de totales semanales hasta que sean resueltas.",
+                            "El objetivo es garantizar que el cuadrante final respete completamente la disponibilidad de cada empleado."
+                        ]
+                    }
+                ]
+            },
+            /* Gestor de sustituciones*/
+            {
+                id: "sustituciones-time-fold",
+                title: "Sistema de gestión automático de ausencias",
+                content: "El sistema dispone de un motor automatizado de resolución de ausencias que analiza cada turno afectado y propone sustituciones óptimas en base a disponibilidad, reglas de negocio y carga de trabajo. Todo el proceso se realiza en memoria hasta su confirmación final, garantizando la integridad del cuadrante.",
+                subsections: [
+                    {
+                        id: "selector-ausencia",
+                        title: "1. Introducción de datos",
+                        content: "Para iniciar el proceso, selecciona el empleado ausente y el rango de fechas en el que se produce la ausencia. El sistema identificará automáticamente todos los turnos afectados dentro del periodo seleccionado.",
+                        image: `${baseUrl}/images/guide/selector-ausencia.webp`,
+                    },
+                    {
+                        id: "proceso-busqueda",
+                        title: "2. Proceso de búsqueda de sustituto",
+                        content: "El sistema analiza cada turno afectado y ejecuta un proceso de optimización que evalúa todos los posibles candidatos disponibles. Este proceso tiene en cuenta tanto restricciones obligatorias como preferencias para generar la mejor propuesta posible.",
+                        image: `${baseUrl}/images/guide/proceso-ausencias.webp`,
+                        features: [
+                            "Evita solapamientos: ningún empleado puede tener dos turnos en el mismo horario.",
+                            "Respeta vacaciones, bajas y periodos de no disponibilidad (bloqueo absoluto).",
+                            "Garantiza descansos mínimos entre jornadas.",
+                            "Evita asignar más de un turno de sustitución al mismo empleado en el mismo día.",
+                            "Tiene en cuenta la carga real de trabajo (turnos existentes + propuestas en curso).",
+                            "Aplica reglas de rol: manager, keyholder o employee según el tipo de turno.",
+                            "Prioriza candidatos con las habilidades necesarias para el puesto.",
+                            "Considera preferencias de turno (mañana/tarde) y fines de semana.",
+                            "Balancea la carga de horas entre empleados.",
+                            "Excluye automáticamente candidatos previamente rechazados en ese turno."
+                        ]
+                    },
+                    {
+                        id: "revision-candidatos",
+                        title: "3. Revisión y confirmación de propuestas",
+                        content: "Una vez finalizado el proceso, el sistema presenta una propuesta completa de sustituciones. Podrás revisarla, aceptarla o rechazar candidatos individuales para forzar nuevas alternativas. Los cambios no se aplican en el cuadrante hasta su confirmación final.",
+                        image: `${baseUrl}/images/guide/confirmacion-ausencias.webp`,
+                        features: [
+                            "Visualización clara de qué turnos han sido resueltos y cuáles no.",
+                            "Posibilidad de rechazar candidatos individuales y relanzar el proceso.",
+                            "Las propuestas se mantienen en memoria hasta su confirmación.",
+                            "La confirmación aplica todos los cambios de forma atómica (sin estados intermedios).",
+                            "El rechazo descarta completamente la propuesta sin afectar al cuadrante actual.",
+                            "Garantiza que no se generen duplicidades ni inconsistencias en la base de datos."
+                        ]
+                    }
+                ],
+                video: "https://www.youtube.com/watch?v=mZ2rFmt2VUw"
             },
             /* Gestion de usuarios */
             {
