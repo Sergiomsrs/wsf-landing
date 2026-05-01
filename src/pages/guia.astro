@@ -4,6 +4,7 @@ import GuideSidebar from "../components/guide/GuideSidebar.astro";
 import GuideSection from "../components/guide/GuideSection.astro";
 import GuideMobileNav from "../components/guide/GuideMobileNav.astro";
 import { guideData } from "../data/guideData";
+import Footer from "../components/Footer.astro";
 ---
 
 <GuideLayout>
@@ -37,17 +38,8 @@ import { guideData } from "../data/guideData";
                         </div>
                     ))
                 }
-
-                <div class="guide-footer">
-                    <div class="footer-divider"></div>
-                    <p class="footer-text">
-                        ¿Necesitas más ayuda? <a
-                            href="/wsf-landing/"
-                            class="footer-link">Volver al inicio</a
-                        >
-                    </p>
-                </div>
             </article>
+            <Footer />
         </main>
     </div>
 </GuideLayout>

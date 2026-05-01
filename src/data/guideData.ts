@@ -546,6 +546,106 @@ export const guideData: GuideCategory[] = [
                     }
                 ],
             },
+            /* Reportes mensuales */
+            {
+                id: "reportes",
+                title: "Reportes y análisis de horas trabajadas",
+                content: "La sección de reportes permite analizar y consolidar la información de jornadas y fichajes en un periodo determinado. Está disponible en dos modos: Ver Previsión, para consultar cualquier rango de fechas libre, y Cierre mes, para gestionar los periodos de liquidación oficiales y la bolsa de horas de cada empleado.",
+                subsections: [
+                    {
+                        id: "modos-reporte",
+                        title: "1. Modos de uso: Previsión y Cierre mes",
+                        content: "El selector de modo permite alternar entre dos formas de trabajar con los reportes según el objetivo del gestor.",
+                        image: `${baseUrl}/images/guide/report-modes.webp`,
+                        features: [
+                            "**Ver Previsión**: permite seleccionar cualquier rango de fechas mediante el selector de calendario y obtener un análisis instantáneo. Útil para consultas puntuales o análisis comparativos sin comprometer datos de liquidación.",
+                            "**Cierre mes**: trabaja sobre periodos de liquidación predefinidos en el sistema. Al seleccionar un periodo, se generan o recuperan automáticamente las bolsas de horas de cada empleado activo en ese periodo.",
+                            "Los periodos de liquidación muestran el nombre identificativo y el rango de fechas exacto definido por la empresa, reflejando la lógica de negocio propia de cada organización",
+                        ]
+                    },
+                    {
+                        id: "seleccion-periodo",
+                        title: "2. Selección del periodo de análisis",
+                        content: "Según el modo activo, la selección del periodo se realiza de forma distinta adaptándose al flujo de trabajo del gestor.",
+                        image: `${baseUrl}/images/guide/report-datepicker.webp`,
+                        features: [
+                            "**Modo Previsión**: selector de fecha de inicio y fin mediante calendario. El reporte se genera bajo demanda al pulsar obtener.",
+                            "**Modo Cierre mes**: selector de periodo de liquidación predefinido. Al seleccionar un periodo, los datos se cargan automáticamente sin necesidad de confirmar.",
+                            "Los periodos de liquidación muestran el nombre del mes y el rango exacto de fechas para facilitar su identificación.",
+                            "Análisis basado únicamente en el periodo seleccionado, sin interferir con otros periodos.",
+                            "Evita cálculos manuales o consultas externas al sistema."
+                        ]
+                    },
+                    {
+                        id: "metricas-globales",
+                        title: "3. Métricas globales del periodo",
+                        content: "Una vez cargado el reporte, el sistema muestra un panel de métricas con los datos más relevantes del periodo, organizados por orden de importancia. El dato principal es el Total FTE, seguido de la composición FTE y las horas del periodo.",
+                        image: `${baseUrl}/images/guide/report-metricas.webp`,
+                        features: [
+                            "**Total FTE**: capacidad laboral total de la empresa en el mes natural. Es la suma de Base FTE y Extra FTE. Un valor de 1.0 equivale a un empleado a jornada completa activo todo el mes.",
+                            "**Base FTE**: correspondiente a las horas de contrato. Se calcula sobre una base de 30 días fijos, proporcional a la jornada de cada empleado y a los días activos en el mes. Un empleado a jornada completa todo el mes siempre representa exactamente 1.0 FTE independientemente de los días que tenga el mes.",
+                            "**Extra FTE**: generado por las horas complementarias positivas. Muestra también el total de horas complementarias bajo el valor. Solo acumula empleados con saldo positivo; los negativos no compensan este valor.",
+                            "**Horas contrato**: total de horas que el conjunto de empleados debería realizar según sus jornadas en el periodo de liquidación.",
+                            "**Horas trabajadas**: total de horas efectivamente fichadas en el periodo.",
+                            "**Horas pendientes**: diferencia negativa acumulada de los empleados que no han completado su jornada. Solo refleja los negativos; los positivos se muestran en el Extra FTE.",
+                            "**Horas festivas y nocturnas**: mostradas como datos informativos complementarios, sin impacto en el cálculo FTE."
+                        ]
+                    },
+                    {
+                        id: "detalle-empleado",
+                        title: "4. Detalle de horas por empleado",
+                        content: "Bajo las métricas globales se muestra una tabla con el desglose individual de cada empleado incluido en el periodo.",
+                        image: `${baseUrl}/images/guide/report-employee.webp`,
+                        features: [
+                            "**Horas jornada**: horas que el empleado debería realizar según su contrato en el periodo, teniendo en cuenta su fecha de alta, baja y posibles cambios de jornada a mitad de mes.",
+                            "Los días de vacaciones (PTO) y festivos se excluyen automáticamente del cálculo de jornada, reduciendo la base proporcional de ese día.",
+                            "**Horas trabajadas**: total de horas efectivamente fichadas por el empleado en el periodo.",
+                            "**Complementarias**: diferencia entre horas trabajadas y horas de jornada. Puede ser positiva (horas extra realizadas) o negativa (horas pendientes de completar).",
+                            "**Festivas**: horas trabajadas por el empleado en días festivos del periodo.",
+                            "**Nocturnas**: horas trabajadas en franja nocturna. Solo se acumulan los días en los que el empleado supera 1 hora en franja nocturna.",
+                        ]
+                    },
+                    {
+                        id: "bolsa-horas",
+                        title: "5. Gestión de la bolsa de horas (modo Cierre mes)",
+                        content: "El modo Cierre mes amplía la tabla con columnas adicionales para gestionar la liquidación mensual de cada empleado. Cada empleado tiene una bolsa de horas asociada al periodo que recoge sus horas complementarias y la DI arrastrada del mes anterior.",
+                        image: `${baseUrl}/images/guide/report-hourbank.webp`,
+                        features: [
+                            "**DI arrastrada**: horas de diferencia de imputación arrastradas del cierre del mes anterior. Se incorporan automáticamente al generar la bolsa del periodo.",
+                            "**Total bolsa**: suma de las horas complementarias del periodo más la DI arrastrada. Es el total acumulado disponible para liquidar.",
+                            "**A pagar**: campo editable donde el gestor introduce las horas que se van a pagar en la liquidación. Se rellena por defecto con el valor de Total bolsa, con un mínimo de 0. No es posible liquidar horas negativas.",
+                            "**DI**: horas que quedan en la bolsa sin pagar tras la liquidación. Se arrastran automáticamente al mes siguiente como DI del próximo periodo.",
+                            "**Estado**: refleja la situación actual de la bolsa. OPEN indica que está pendiente de cerrar, CLOSED que la liquidación ha sido guardada, y REOPENED que ha sido reabierta para corrección."
+                        ]
+                    },
+                    {
+                        id: "cierre-reapertura",
+                        title: "6. Cierre y reapertura de bolsas",
+                        content: "El cierre de la bolsa mensual congela los datos de liquidación del empleado para ese periodo. Si posteriormente se detectan cambios o errores, el sistema permite reabrirla manteniendo la trazabilidad completa de cada operación.",
+                        image: `${baseUrl}/images/guide/report-close-reopen.webp`,
+                        features: [
+                            "**Cerrar bolsa**: guarda las horas a pagar introducidas, calcula la DI resultante y marca la bolsa como CLOSED. El campo A pagar deja de ser editable y muestra el valor guardado.",
+                            "**Reabrir bolsa**: si tras el cierre se detectan cambios en los cuadrantes, indicados por el aviso ⚠️, o es necesario corregir el importe a pagar, el botón Reabrir permite volver al estado editable. La bolsa pasa a estado REOPENED.",
+                            "El sistema registra quién realizó el cierre y la reapertura y en qué fecha, garantizando la trazabilidad completa de cada operación.",
+                            "Al reabrir una bolsa, las entradas anteriores se invalidan automáticamente y se recalculan con los datos actuales de fichajes.",
+                            "No es posible introducir un valor negativo en el campo A pagar. El sistema marca el valor a 0 como mínimo antes de guardar."
+                        ]
+                    },
+                    {
+                        id: "calculo-fte",
+                        title: "7. Full-Time Equivalent: conceptos clave",
+                        content: "El sistema realiza el calculo de FTE de forma que sea comparable entre meses independientemente de su duración, garantizando coherencia en los datos de coste mes a mes.",
+                        image: `${baseUrl}/images/guide/report-fte.webp`,
+                        features: [
+                            "La base siempre es de 30 días fijos por mes, independientemente de si el mes tiene 28, 30 o 31 días. Esto garantiza que un empleado a jornada completa activo todo el mes represente exactamente 1.0 FTE en cualquier mes del año.",
+                            "Si un empleado cambia de jornada a mitad de mes, el sistema calcula la proporción exacta de cada tramo y los suma. Por ejemplo, 18 días a 20h y 12 días a 12h generan contribuciones FTE independientes.",
+                            "Si un empleado finaliza contrato antes del día 30, solo se computan los días efectivamente activos en la proporción correspondiente.",
+                            "El Extra FTE se calcula sobre una base de horas mensual configurable según la lógica de negocio de la empresa, y solo acumula los empleados con horas complementarias positivas. Los empleados en negativo no reducen este valor.",
+                            "El Total FTE es la suma directa de Base FTE y Extra FTE, y representa la capacidad laboral real desplegada por la empresa en ese mes natural."
+                        ]
+                    }
+                ]
+            },
             /* Vista de empleado */
             {
                 id: "vista-empleado",
@@ -580,55 +680,6 @@ export const guideData: GuideCategory[] = [
                     },
                 ]
             },
-
-            /* Reportes mensuales */
-            {
-                id: "reportes",
-                title: "Reportes y análisis de horas trabajadas",
-                content: "La sección de reportes permite analizar y consolidar la información de jornadas y fichajes en un periodo determinado. Estos reportes están pensados para facilitar el control horario, la planificación y la toma de decisiones.",
-                subsections: [
-                    {
-                        id: "seleccion-periodo",
-                        title: "1. Selección del periodo de análisis",
-                        content: "El gestor puede generar reportes seleccionando un rango de fechas específico.",
-                        image: `${baseUrl}/images/guide/report-datepicker.webp`,
-                        features: [
-                            "Selección de fecha de inicio y fin mediante calendario.",
-                            "Generación del reporte bajo demanda.",
-                            "Análisis basado únicamente en el periodo seleccionado.",
-                            "Actualización automática de los datos mostrados.",
-                            "Evita cálculos manuales o externos."
-                        ]
-                    },
-                    {
-                        id: "metricas-globales",
-                        title: "2. Métricas globales del periodo",
-                        content: "Una vez generado el reporte, el sistema muestra un resumen con las métricas principales del periodo analizado.",
-                        image: `${baseUrl}/images/guide/report-metricas.webp`,
-                        features: [
-                            "Visualización de las horas totales del periodo.",
-                            "Desglose entre horas base (FTE) y horas extra.",
-                            "Cálculo de horas trabajadas y complementarias.",
-                            "Preparado para incluir horas festivas y nocturnas.",
-                            "Visión global inmediata del estado del periodo."
-                        ]
-                    },
-                    {
-                        id: "detalle-empleado",
-                        title: "3. Detalle de horas por empleado",
-                        content: "El reporte incluye una tabla detallada con el desglose de horas de cada empleado.",
-                        image: `${baseUrl}/images/guide/report-employee.webp`,
-                        features: [
-                            "Listado de empleados incluidos en el periodo.",
-                            "Horas de jornada planificada.",
-                            "Horas efectivamente trabajadas.",
-                            "Cálculo de horas complementarias.",
-                            "Separación de horas festivas y nocturnas.",
-                            "Facilita revisiones individuales y comparativas."
-                        ]
-                    }
-                ]
-            }
 
 
         ]
