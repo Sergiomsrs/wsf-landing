@@ -38,15 +38,31 @@ const { categories, currentSection } = Astro.props;
                         <ul class="section-list">
                             {category.sections.map((section) => (
                                 <li>
-                                    <a
-                                        href={`#${section.id}`}
-                                        class={`section-link ${currentSection === section.id ? "active" : ""}`}
-                                        data-section={section.id}
-                                    >
-                                        {section.title}
-                                    </a>
                                     {section.subsections &&
-                                        section.subsections.length > 0 && (
+                                    section.subsections.length > 0 ? (
+                                        <details class="section-group">
+                                            <summary class="section-row">
+                                                <a
+                                                    href={`#${section.id}`}
+                                                    class={`section-link ${currentSection === section.id ? "active" : ""}`}
+                                                    data-section={section.id}
+                                                >
+                                                    {section.title}
+                                                </a>
+                                                <svg
+                                                    class="subsection-toggle-icon"
+                                                    viewBox="0 0 20 20"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                >
+                                                    <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M6 8l4 4 4-4"
+                                                    ></path>
+                                                </svg>
+                                            </summary>
                                             <ul class="subsection-list">
                                                 {section.subsections.map(
                                                     (subsection) => (
@@ -66,7 +82,16 @@ const { categories, currentSection } = Astro.props;
                                                     ),
                                                 )}
                                             </ul>
-                                        )}
+                                        </details>
+                                    ) : (
+                                        <a
+                                            href={`#${section.id}`}
+                                            class={`section-link ${currentSection === section.id ? "active" : ""}`}
+                                            data-section={section.id}
+                                        >
+                                            {section.title}
+                                        </a>
+                                    )}
                                 </li>
                             ))}
                         </ul>
@@ -169,10 +194,41 @@ const { categories, currentSection } = Astro.props;
         font-weight: 500;
     }
 
+    .section-row {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        cursor: pointer;
+        list-style: none;
+    }
+
+    .section-row::-webkit-details-marker {
+        display: none;
+    }
+
+    .section-row .section-link {
+        flex: 1;
+    }
+
+    .subsection-toggle-icon {
+        width: 0.9rem;
+        height: 0.9rem;
+        transition: transform 0.2s ease;
+        color: #94a3b8;
+    }
+
+    .section-group[open] .subsection-toggle-icon {
+        transform: rotate(180deg);
+    }
+
     .subsection-list {
         list-style: none;
         padding-left: 1.25rem;
         margin: 0.25rem 0;
+    }
+
+    .section-group:not([open]) .subsection-list {
+        display: none;
     }
 
     .subsection-link {
@@ -250,6 +306,17 @@ const { categories, currentSection } = Astro.props;
             }, 300);
         });
     });
+
+    const initialHash = window.location.hash.replace("#", "");
+    if (initialHash) {
+        const subsectionLink = document.querySelector<HTMLElement>(
+            `.subsection-link[data-section="${initialHash}"]`,
+        );
+        const parentGroup = subsectionLink?.closest<HTMLElement>(".section-group");
+        if (parentGroup) {
+            parentGroup.setAttribute("open", "");
+        }
+    }
 
     // Highlight active section on scroll
     const observer = new IntersectionObserver(

@@ -93,7 +93,7 @@ export const guideData: GuideCategory[] = [
     /* Modulo Secciones Principales */
     {
         id: "secciones-principales",
-        title: "Secciones Principales",
+        title: "Funciones Principales",
         sections: [
             /* Roster Page */
             {
