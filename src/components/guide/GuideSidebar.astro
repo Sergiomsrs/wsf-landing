@@ -216,25 +216,40 @@ const { categories, currentSection } = Astro.props;
 </style>
 
 <script>
-    // Smooth scroll to exact top position when clicking sidebar links
-    document
-        .querySelectorAll(".section-link, .subsection-link")
-        .forEach((link) => {
-            link.addEventListener("click", (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute("href")?.substring(1);
-                if (targetId) {
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        const offsetTop = targetElement.offsetTop;
-                        window.scrollTo({
-                            top: offsetTop - 20,
-                            behavior: "smooth",
-                        });
-                    }
-                }
-            });
+    function getTopOffset() {
+        // Keep a safe gap from the viewport top on desktop.
+        return 24;
+    }
+
+    function scrollToTarget(targetElement: HTMLElement, behavior: ScrollBehavior) {
+        const top =
+            targetElement.getBoundingClientRect().top +
+            window.scrollY -
+            getTopOffset();
+        window.scrollTo({ top: Math.max(top, 0), behavior });
+    }
+
+    // Smooth scroll to target when clicking sidebar links.
+    document.querySelectorAll(".section-link, .subsection-link").forEach((link) => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute("href")?.substring(1);
+            if (!targetId) return;
+
+            const targetElement = document.getElementById(targetId);
+            if (!targetElement) return;
+
+            scrollToTarget(targetElement, "smooth");
+
+            // Keep URL hash in sync without forcing native jump.
+            history.replaceState(null, "", `#${targetId}`);
+
+            // Correct final position if layout shifts (lazy images/videos).
+            window.setTimeout(() => {
+                scrollToTarget(targetElement, "auto");
+            }, 300);
         });
+    });
 
     // Highlight active section on scroll
     const observer = new IntersectionObserver(
