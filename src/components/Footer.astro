@@ -1,5 +1,6 @@
 ---
 // Footer component
+const logoSrc = `${import.meta.env.BASE_URL}icono.svg`;
 ---
 
 <footer class="py-16 px-6 border-t border-slate-700/50 bg-slate-900/50">
@@ -10,7 +11,7 @@
                 <!-- Logo/Brand area -->
                 <div class="flex items-center mb-6">
                     <img
-                        src="./icono.svg"
+                        src={logoSrc}
                         alt="WorkSchedFlow Logo"
                         width="48"
                         height="48"
