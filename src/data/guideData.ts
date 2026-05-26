@@ -668,11 +668,12 @@ export const guideData: GuideCategory[] = [
                     {
                         id: "informacion-laboral",
                         title: "2. Consulta de información laboral",
-                        content: "Desde la vista de empleado se puede acceder de forma centralizada a toda la información relacionada con su actividad.",
+                        content: "Desde la vista de empleado se puede acceder de forma centralizada a toda la información relacionada con su actividad, incluyendo el estado de sus fichajes de un vistazo.",
                         image: `${baseUrl}/images/guide/vista-mes.webp`,
                         features: [
                             "Visualización de horarios y turnos asignados.",
-                            "Consulta del histórico de fichajes de entrada y salida.",
+                            "Cada turno pasado muestra un indicador de estado: verde si el fichaje es correcto, amarillo si hay algo pendiente y rojo si no existe fichaje para ese turno.",
+                            "Consulta del detalle de fichajes disponible en un desplegable, sin saturar la vista principal.",
                             "Acceso a vacaciones planificadas y solicitadas.",
                             "Visualización de ausencias y justificantes asociados.",
                             "Consulta organizada por fechas y periodos."
