@@ -62,7 +62,7 @@ export const guideData: GuideCategory[] = [
                             "Vista dedicada para **inspección**, con todos los registros accesibles y opción de descargar en PDF.",
                             "Posibilidad de **añadir o corregir fichajes**, generando notificaciones y envío por correo tanto al gestor como al empleado.",
                             "Creación flexible de cuadrantes: desde cero, copiando semanas previas o aplicando **turnos por defecto**.",
-                            "Configuración de **semanas genéricas** con empleados ficticios para planificaciones modelo, asignándolos luego a empleados reales. Hasta 6 semanas genéricas disponibles.",
+                            "Configuración de **semanas genéricas** con empleados ficticios para planificaciones modelo, asignándolos luego a empleados reales. Hasta 10 plantillas genéricas disponibles.",
                             "Reporte mensual completo: horas totales, por empleado, horas extra, nocturnas y festivas, incluyendo **cálculo de costes** según la lógica de negocio.",
                             "Impresión directa de cuadrantes en PDF con una vista clara y lista para entregar."
                         ]
@@ -234,7 +234,7 @@ export const guideData: GuideCategory[] = [
                     {
                         id: "seleccionar-semana",
                         title: "1. Seleccionar la semana genérica",
-                        content: "El sistema permite configurar hasta 6 semanas genéricas distintas. Cada una representa un patrón de planificación reutilizable que podrás aplicar en cualquier momento.",
+                        content: "El sistema permite configurar hasta 10 plantillas genéricas distintas. Cada una representa un patrón de planificación reutilizable que podrás aplicar en cualquier momento.",
                         image: `${baseUrl}/images/guide/generic-header.webp`
                     },
                     {
@@ -244,7 +244,7 @@ export const guideData: GuideCategory[] = [
                         image: `${baseUrl}/images/guide/generic-roster.webp`,
                         features: [
                             "Definición de turnos por día de la semana.",
-                            "Configuración independiente de cada semana genérica (hasta 6 disponibles).",
+                            "Configuración independiente de cada plantilla genérica (hasta 10 disponibles).",
                             "Base reutilizable para múltiples periodos."
                         ]
                     },
