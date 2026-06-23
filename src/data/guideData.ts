@@ -368,7 +368,7 @@ export const guideData: GuideCategory[] = [
                             "Garantiza descansos mínimos entre jornadas.",
                             "Evita asignar más de un turno de sustitución al mismo empleado en el mismo día.",
                             "Tiene en cuenta la carga real de trabajo (turnos existentes + propuestas en curso).",
-                            "Aplica reglas de rol: manager, keyholder o employee según el tipo de turno.",
+                            "Aplica reglas de rol: Aplica reglas en funcion del rol y el tipo de turno.",
                             "Prioriza candidatos con las habilidades necesarias para el puesto.",
                             "Considera preferencias de turno (mañana/tarde) y fines de semana.",
                             "Balancea la carga de horas entre empleados.",
@@ -450,7 +450,7 @@ export const guideData: GuideCategory[] = [
                         content: "En este apartado se configuran las preferencias del empleado que el sistema tendrá en cuenta a la hora de generar la planificación y asignación de turnos.",
                         image: `${baseUrl}/images/guide/preferencias.webp`,
                         features: [
-                            "Asignación del perfil de acceso del empleado (Manager, Keyholder o Empleado) con sus restricciones horarias asociadas.",
+                            "Asignación del perfil de acceso del empleado con sus restricciones horarias asociadas.",
                             "Configuración de disponibilidad para realizar horas extra y límite máximo semanal de horas aceptadas.",
                             "Definición de preferencias de turno, incluyendo franja horaria preferida y restricciones específicas (por ejemplo, solo turno de tarde entre semana).",
                             "Gestión de disponibilidad en fines de semana mediante modalidad rotativa o fija.",
